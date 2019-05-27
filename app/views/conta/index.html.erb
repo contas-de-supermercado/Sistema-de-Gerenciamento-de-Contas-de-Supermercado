@@ -8,9 +8,9 @@
     <div id="menu">
       <ul>
         <li><%= link_to 'Inicio', '#' %></li>
-        <li><%= link_to 'Cliente', '#', class:"current"%></li>
+        <li><%= link_to 'Cliente', '/clientes'%></li>
         <li><%= link_to 'Funcionário', '#' %></li>
-        <li><%= link_to 'Contas', '/conta/index' %></li>
+        <li><%= link_to 'Contas', '#', class:"current" %></li>
         <li><%= link_to 'Contas Atrasadas', '#' %></li>
       </ul>
     </div>
@@ -19,10 +19,10 @@
 
     <div id="content">
 
-      <%= form_with model: @cliente, scope: :cliente, class:"formulario", local: true do |form| %>
+      <%= form_with model: @conta, scope: :conta, class:"formulario", local: true do |form| %>
 
         <span class="titulo_formulario">
-					Cadastrar Cliente
+					Cadastrar Conta
 				</span>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
@@ -81,7 +81,7 @@
 
         <% cont = 0; if(cont == 1) %>
           <span class="status_processo">
-            Cliente Salvo
+            Conta Salvo
           </span>
         <% end %>
 
@@ -106,21 +106,7 @@
         </div>
 
         <div style="height: 500px; overflow-y:auto; overflow-x:hidden;">
-          <% @clientes.each do |cliente| %>
-            <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-              <div class="left col-1 colunaCorpoComum colunaId"> <%= cliente.id %> </div>
-              <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
-              <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela" %>
-              </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
-                            method: :delete,
-                            data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' } %>
-              </div>
-            </div>
-          <% end %>
+
         </div>
       </div>
 
