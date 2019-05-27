@@ -1,0 +1,90 @@
+.botao_tabela {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 20px;
+    height: 35px;
+    background-color: #ff4b5a;
+    border-radius: 25px;
+    margin-top: -9px;
+
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+
+    box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+    -moz-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+    -webkit-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+    -o-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+    -ms-box-shadow: 0 10px 30px 0px rgba(255, 75, 90, 0.5);
+}
+
+.botao_tabela i {
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.botao_tabela:hover {
+    background-color: #333333;
+    box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+    -moz-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+    -webkit-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+    -o-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+    -ms-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
+}
+
+.botao_tabela:hover i {
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    transform: translateX(10px);
+}
+
+.menuTabela{
+    width: 50%;
+    padding: 2rem;
+    text-align: center;
+    background: #2e2e2e;
+    border-radius: .3rem .3rem 0rem  0rem ;
+    margin-bottom: .2rem;
+    color: #f4f4f4;
+}
+
+.colunaTituloComum{
+    font-size: 18px;
+    margin-top: -20px;
+}
+
+.colunaCorpoComum{
+    font-size: 15px;
+    margin-top: -20px;
+    color: #000000;
+}
+
+.colunaId{
+    width: 8%;
+}
+
+.colunaNome{
+    width: 35%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.colunaCpf{
+    width: 27%;
+}

@@ -1,0 +1,5 @@
+require 'cucumber/rails'
+require 'capybara'
+require 'capybara/dsl'
+require 'capybara/cucumber'
+require 'rspec/expectations'
