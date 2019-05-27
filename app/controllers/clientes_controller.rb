@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
 
   def index
-    @clientes = Cliente.all
+    @clientes = Cliente.lista_clientes
   end
 
   def new
@@ -10,7 +10,7 @@ class ClientesController < ApplicationController
 
   def edit
     @cliente = Cliente.find(params[:id])
-    @clientes = Cliente.all
+    @clientes = Cliente.lista_clientes
     render 'clientes/index'
   end
 
