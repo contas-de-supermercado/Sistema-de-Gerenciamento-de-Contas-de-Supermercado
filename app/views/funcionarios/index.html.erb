@@ -7,10 +7,10 @@
   <div id="menucontainer">
     <div id="menu">
       <ul>
-        <li><%= link_to 'Inicio', '#' %></li>
-        <li><%= link_to 'Cliente', '/clientes', class:"current"%></li>
-        <li><%= link_to 'Funcionário', '#' %></li>
-        <li><%= link_to 'Contas', '#' %></li>
+        <li><%= link_to 'Inicio', ficheiros_path %></li>
+        <li><%= link_to 'Cliente', clientes_path %></li>
+        <li><%= link_to 'Funcionário', funcionarios_path, class:"current" %></li>
+        <li><%= link_to 'Contas', contas_path %></li>
         <li><%= link_to 'Contas Atrasadas', '#' %></li>
       </ul>
     </div>
@@ -19,10 +19,11 @@
 
     <div id="content">
 
-      <%= form_with model: @cliente, scope: :cliente, class:"formulario", local: true do |form| %>
+      <% # formulario de cadastramento ..................................... %>
+      <%= form_with model: @funcionario, scope: :funcionario, class:"formulario", local: true do |form| %>
 
         <span class="titulo_formulario">
-					Cadastrar Cliente
+					Cadastrar Funcionário
 				</span>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
@@ -79,10 +80,17 @@
           <span class="focus-input100"></span>
         </div>
 
-        <% cont = 0; if(cont == 1) %>
-          <span class="status_processo">
-            Cliente Salvo
+        <div class="elemento_formulario quantidade_elemento_linha_formulario">
+          <%= form.label :cargo, class:"label-elemento_formulario" %><br>
+          <%= form.text_field :cargo, class:"input100", placeholder:"Digite o um cargo" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <% if(FuncionariosController.getResultadoPositivoFuncionario != "") %>
+          <span id="resultadoPositivo" class="status_processo">
+            <%= FuncionariosController.getResultadoPositivoFuncionario %>
           </span>
+          <%FuncionariosController.setResultadoPositivoFuncionario("") %>
         <% end %>
 
         <div class="div_butao_formulario">
@@ -94,8 +102,42 @@
           </button>
         </div>
 
+        <% if @funcionario.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@funcionario.errors.count, "erros") %>
+              antes de criar o funcionario:
+            </h2>
+            <ul>
+              <% @funcionario.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
       <% end %>
 
+      <% # formulario de pesquisa %>
+      <%= form_tag(funcionarios_path, method: :get, class:"formulario formulario_pesquisa") do %>
+
+        <div class="elemento_formulario quantidade_elemento_linha_formulario">
+          <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 380px">
+          <button class="botao_tabela" style="height: 50px">
+						<span>
+							Pesquisar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+          </button>
+        </div>
+
+      <% end %>
+
+      <% # tabela de cadastramento..................................... %>
       <div class="col-12" >
         <div class="menuTabela col-10 offset-1 row" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaId"> Id </div>
@@ -106,18 +148,18 @@
         </div>
 
         <div style="height: 500px; overflow-y:auto; overflow-x:hidden;">
-          <% @clientes.each do |cliente| %>
+          <% @funcionarios.each do |funcionario| %>
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-              <div class="left col-1 colunaCorpoComum colunaId"> <%= cliente.id %> </div>
-              <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
-              <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
+              <div class="left col-1 colunaCorpoComum colunaId"> <%= funcionario.id %> </div>
+              <div class="left col-5 colunaCorpoComum colunaNome"> <%= funcionario.nome %> </div>
+              <div class="left col-3 colunaCorpoComum colunaCpf"> <%= funcionario.cpf %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_funcionario_path(funcionario), class:"botao_tabela",id:"d-#{'edit-'+funcionario.cpf}" %>
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
+                <%= link_to 'Deletar', funcionario_path(funcionario), class:"botao_tabela",
                             method: :delete,
-                            data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' } %>
+                            data: { confirm: 'Tem certeza que deseja excluir esse Funcionário?' }, id:"d-#{'delete-'+funcionario.cpf}"%>
               </div>
             </div>
           <% end %>

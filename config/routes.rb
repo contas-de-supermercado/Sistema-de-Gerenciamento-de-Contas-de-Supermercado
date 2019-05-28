@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'ficheiro/index'
 
-  get 'conta/index'
+  resources :funcionarios
 
+  resources :contas
+
+  resources :ficheiros
   resources :clientes
-  resources :conta
-  resources :ficheiro
+
 
 end

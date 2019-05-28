@@ -88,3 +88,25 @@
 .colunaCpf{
     width: 27%;
 }
+
+.colunaIdFicheiro{
+    width: 10%;
+}
+
+.colunaNomeFicheiro{
+    width: 40%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.colunaCpfFicheiro{
+    width: 35%;
+}
+
+a.fill-div {
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}

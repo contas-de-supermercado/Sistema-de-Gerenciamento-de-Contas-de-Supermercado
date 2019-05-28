@@ -7,8 +7,8 @@
   <div id="menucontainer">
     <div id="menu">
       <ul>
-        <li><%= link_to 'Inicio', ficheiros_path %></li>
-        <li><%= link_to 'Cliente', clientes_path, class:"current"%></li>
+        <li><%= link_to 'Inicio', ficheiros_path, class:"current" %></li>
+        <li><%= link_to 'Cliente', clientes_path%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
         <li><%= link_to 'Contas', contas_path %></li>
         <li><%= link_to 'Contas Atrasadas', '#' %></li>
@@ -25,8 +25,6 @@
         <span class="titulo_formulario">
 					Cadastrar Cliente
 				</span>
-
-
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= form.label :nome, class:"label-elemento_formulario" %><br>
@@ -99,20 +97,6 @@
           </button>
         </div>
 
-        <% if @cliente.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= pluralize(@cliente.errors.count, "erros") %>
-              antes de criar o cliente:
-            </h2>
-            <ul>
-              <% @cliente.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
       <% end %>
 
       <% # formulario de pesquisa ......................................... %>
@@ -136,29 +120,41 @@
 
       <% # tabela de cadastramento..................................... %>
       <div class="col-12" >
-        <div class="menuTabela col-10 offset-1 row" style="width: 1140px;">
-          <div class="left col-1 colunaTituloComum colunaId"> Id </div>
-          <div class="left col-5 colunaTituloComum colunaNome"> Nome </div>
-          <div class="left col-3 colunaTituloComum colunaCpf"> Cpf </div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
+        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
+          <div class="left colunaTituloComum colunaIdFicheiro"> Id </div>
+          <div class="left colunaTituloComum colunaNomeFicheiro"> Nome </div>
+          <div class="left colunaTituloComum colunaCpfFicheiro"> Cpf </div>
         </div>
 
-        <div style="height: 500px; overflow-y:auto; overflow-x:hidden;">
+        <div style="height: 250px; width: 590px; overflow-y:auto; overflow-x:hidden;">
           <% @clientes.each do |cliente| %>
-            <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-              <div class="left col-1 colunaCorpoComum colunaId"> <%= cliente.id %> </div>
-              <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
-              <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela",id:"d-#{'edit-'+cliente.cpf}" %>
+            <button>
+              <div class="menuTabela" style="width: 525px; background: #ffffff; margin-left: -5px;">
+                <div class="left colunaCorpoComum colunaIdFicheiro"> <%= cliente.id %> </div>
+                <div class="left colunaCorpoComum colunaNomeFicheiro"> <%= cliente.nome %> </div>
+                <div class="left colunaCorpoComum colunaCpfFicheiro"> <%= cliente.cpf %> </div>
               </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
-                            method: :delete,
-                            data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' },id:"d-#{'delete-'+cliente.cpf}" %>
+            </button>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-12" style="margin-left: 51.6%; margin-top: -316.5px">
+        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
+          <div class="left col-1 colunaTituloComum colunaIdFicheiro"> Id </div>
+          <div class="left col-5 colunaTituloComum colunaNomeFicheiro"> Nome </div>
+          <div class="left col-3 colunaTituloComum colunaCpfFicheiro"> Cpf </div>
+        </div>
+
+        <div style="height: 250px; width: 590px; overflow-y:auto; overflow-x:hidden;">
+          <% @funcionarios.each do |funcionario| %>
+            <button>
+              <div class="menuTabela col-10 offset-1 row pointer" style="width: 525px; background: #ffffff; margin-left: -5px;">
+                <div class="left col-1 colunaCorpoComum colunaIdFicheiro"> <%= funcionario.id %> </div>
+                <div class="left col-5 colunaCorpoComum colunaNomeFicheiro"> <%= funcionario.nome %> </div>
+                <div class="left col-3 colunaCorpoComum colunaCpfFicheiro"> <%= funcionario.cpf %> </div>
               </div>
-            </div>
+            </button>
           <% end %>
         </div>
       </div>
