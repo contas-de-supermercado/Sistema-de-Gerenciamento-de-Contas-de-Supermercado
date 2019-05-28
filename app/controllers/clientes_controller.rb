@@ -14,7 +14,7 @@ class ClientesController < ApplicationController
     if params[:pesquisa] && params[:pesquisa] != ''
       @clientes = Cliente.pesquisa(params[:pesquisa])
     else
-      @clientes = Cliente.listaClientes 0
+      @clientes = Cliente.listaClientes
     end
 
   end
@@ -25,7 +25,7 @@ class ClientesController < ApplicationController
 
   def edit
     @cliente = Cliente.find(params[:id])
-    @clientes = Cliente.listaClientes 0
+    @clientes = Cliente.listaClientes
     render 'clientes/index'
   end
 

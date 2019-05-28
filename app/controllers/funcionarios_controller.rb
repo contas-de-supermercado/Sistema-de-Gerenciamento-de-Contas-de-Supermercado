@@ -14,7 +14,7 @@ class FuncionariosController < ApplicationController
     if params[:pesquisa] && params[:pesquisa] != ''
       @funcionarios = Funcionario.pesquisa(params[:pesquisa])
     else
-      @funcionarios = Funcionario.listaFuncionarios 1
+      @funcionarios = Funcionario.listaFuncionarios
     end
 
   end
@@ -25,7 +25,7 @@ class FuncionariosController < ApplicationController
 
   def edit
     @funcionario = Funcionario.find(params[:id])
-    @funcionarios = Funcionario.listaFuncionarios 1
+    @funcionarios = Funcionario.listaFuncionarios
     render 'funcionarios/index'
   end
 
