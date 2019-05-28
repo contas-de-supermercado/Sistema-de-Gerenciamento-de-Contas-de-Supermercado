@@ -19,74 +19,136 @@
 
     <div id="content">
 
+      <span class="titulo_formulario">
+					Registrar uma conta de cliente
+      </span>
+
+      <% # formulario de pesquisa de cliente ......................................... %>
+      <%= form_tag(ficheiros_path, method: :get, class:"formulario formulario_pesquisa") do %>
+
+        <div class="elemento_formulario quantidade_elemento_linha_formulario", style="width: 460px;">
+          <%= text_field_tag :pesquisaCliente, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 480px">
+          <button class="botao_tabela" style="height: 50px">
+						<span>
+							Pesquisar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+          </button>
+        </div>
+
+      <% end %>
+
+      <% # formulario de pesquisa de funcionario......................................... %>
+      <%= form_tag(ficheiros_path, method: :get, class:"formulario formulario_pesquisa") do %>
+
+        <div class="elemento_formulario quantidade_elemento_linha_formulario" style="width: 460px; margin-left: 51.6%; margin-top: -85px;">
+          <%= text_field_tag :pesquisaFuncionario, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 92%">
+          <button class="botao_tabela" style="height: 50px">
+						<span>
+							Pesquisar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+          </button>
+        </div>
+
+      <% end %>
+
+      <% # tabela de clientes..................................... %>
+      <div class="col-12" >
+
+        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
+          <div class="left colunaTituloComum colunaIdFicheiro"> Id </div>
+          <div class="left colunaTituloComum colunaNomeFicheiro"> Cliente </div>
+          <div class="left colunaTituloComum colunaCpfFicheiro"> Cpf </div>
+        </div>
+
+        <div style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
+          <% @clientes.each do |cliente| %>
+            <button>
+              <div class="menuTabela" style="width: 525px; background: #eeeeee;; margin-left: -6px;">
+                <div class="left colunaCorpoComum colunaIdFicheiro"> <%= cliente.id %> </div>
+                <div class="left colunaCorpoComum colunaNomeFicheiro"> <%= cliente.nome %> </div>
+                <div class="left colunaCorpoComum colunaCpfFicheiro"> <%= cliente.cpf %> </div>
+              </div>
+            </button>
+          <% end %>
+        </div>
+      </div>
+
+      <% # tabela de funcionarios ..................................... %>
+      <div class="col-12" style="margin-left: 51.6%; margin-top: -216.5px">
+        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
+          <div class="left col-1 colunaTituloComum colunaIdFicheiro"> Id </div>
+          <div class="left col-5 colunaTituloComum colunaNomeFicheiro"> Funcionário </div>
+          <div class="left col-3 colunaTituloComum colunaCpfFicheiro"> Cpf </div>
+        </div>
+
+        <div style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
+          <% @funcionarios.each do |funcionario| %>
+            <button>
+              <div class="menuTabela col-10 offset-1 row pointer" style="width: 525px; background: #eeeeee; margin-left: -6px;">
+                <div class="left col-1 colunaCorpoComum colunaIdFicheiro"> <%= funcionario.id %> </div>
+                <div class="left col-5 colunaCorpoComum colunaNomeFicheiro"> <%= funcionario.nome %> </div>
+                <div class="left col-3 colunaCorpoComum colunaCpfFicheiro"> <%= funcionario.cpf %> </div>
+              </div>
+            </button>
+          <% end %>
+        </div>
+      </div>
+
       <% # formulario de cadastramento ..................................... %>
-      <%= form_with model: @cliente, scope: :cliente, class:"formulario", local: true do |form| %>
+      <%= form_with model: @ficheiro, scope: :ficheiro ,class:"formulario", local: true do |form| %>
 
-        <span class="titulo_formulario">
-					Cadastrar Cliente
-				</span>
+        <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
+          <span class="label-elemento_formulario" name="cliente">Cpf Cliente</span><br>
+          <%= form.text_field :cliente, class:"input100", placeholder:"Cpf do cliente" %>
+          <span class="focus-input100"></span>
+        </div>
 
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :nome, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :nome, class:"input100", placeholder:"Digite um nome" %>
+        <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
+          <span class="label-elemento_formulario" name="funcionario">Cpf Funcionário</span><br>
+          <%= form.text_field :funcionario, class:"input100", placeholder:"Cpf do funcionário" %>
           <span class="focus-input100"></span>
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :cpf, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :cpf, class:"input100", placeholder:"Digite um cpf" %>
+          <%= form.label :valor, class:"label-elemento_formulario" %><br>
+          <%= form.text_field :valor, class:"input100", placeholder:"Valor da conta" %>
           <span class="focus-input100"></span>
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :telefone, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :telefone, class:"input100", placeholder:"Digite um número de telefone" %>
+          <%= form.label :juros, class:"label-elemento_formulario" %><br>
+          <%= form.text_field :juros, class:"input100", placeholder:"0.0" %>
           <span class="focus-input100"></span>
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :celular, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :celular, class:"input100", placeholder:"Digite um número de celular" %>
+          <span class="label-elemento_formulario">Status</span>
+          <div>
+            <select class="selection_formulario_ficheiro" name="ficheiro[status]">
+              <option>Devendo</option>
+              <option>Paga</option>
+              <option>Atrasada</option>
+            </select>
+          </div>
           <span class="focus-input100"></span>
         </div>
 
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :email, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :email, class:"input100", placeholder:"Digite um e-mail (mínimo de 5 carecteres)" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :senha, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :senha, type:"password", class:"input100", placeholder:"Digite uma senha (mínimo de 5 carecteres)" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :cidade, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :cidade, class:"input100", placeholder:"Digite o nome de uma cidade/Estado" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :rua, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :rua, class:"input100", placeholder:"Digite o nome de uma Rua" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :numero, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :numero, class:"input100", placeholder:"Digite o número da casa" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <% if(ClientesController.getClienteSalvo != "") %>
+        <% if(FicheirosController.getResultadoPositivoFicheiro != "") %>
           <span id="resultadoPositivo" class="status_processo">
-            <%= ClientesController.getClienteSalvo %>
+            <%= FicheirosController.getResultadoPositivoFicheiro %>
           </span>
-          <%ClientesController.setClienteSalvo("") %>
+          <%FicheirosController.setResultadoPositivoFicheiro("") %>
         <% end %>
-
 
         <div class="div_butao_formulario">
           <button class="botao_formulario">
@@ -98,66 +160,6 @@
         </div>
 
       <% end %>
-
-      <% # formulario de pesquisa ......................................... %>
-      <%= form_tag(clientes_path, method: :get, class:"formulario formulario_pesquisa") do %>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 380px">
-          <button class="botao_tabela" style="height: 50px">
-						<span>
-							Pesquisar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-          </button>
-        </div>
-
-      <% end %>
-
-      <% # tabela de cadastramento..................................... %>
-      <div class="col-12" >
-        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
-          <div class="left colunaTituloComum colunaIdFicheiro"> Id </div>
-          <div class="left colunaTituloComum colunaNomeFicheiro"> Nome </div>
-          <div class="left colunaTituloComum colunaCpfFicheiro"> Cpf </div>
-        </div>
-
-        <div style="height: 250px; width: 590px; overflow-y:auto; overflow-x:hidden;">
-          <% @clientes.each do |cliente| %>
-            <button>
-              <div class="menuTabela" style="width: 525px; background: #ffffff; margin-left: -5px;">
-                <div class="left colunaCorpoComum colunaIdFicheiro"> <%= cliente.id %> </div>
-                <div class="left colunaCorpoComum colunaNomeFicheiro"> <%= cliente.nome %> </div>
-                <div class="left colunaCorpoComum colunaCpfFicheiro"> <%= cliente.cpf %> </div>
-              </div>
-            </button>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-12" style="margin-left: 51.6%; margin-top: -316.5px">
-        <div class="menuTabela col-10 offset-1 row" style="width: 525px;">
-          <div class="left col-1 colunaTituloComum colunaIdFicheiro"> Id </div>
-          <div class="left col-5 colunaTituloComum colunaNomeFicheiro"> Nome </div>
-          <div class="left col-3 colunaTituloComum colunaCpfFicheiro"> Cpf </div>
-        </div>
-
-        <div style="height: 250px; width: 590px; overflow-y:auto; overflow-x:hidden;">
-          <% @funcionarios.each do |funcionario| %>
-            <button>
-              <div class="menuTabela col-10 offset-1 row pointer" style="width: 525px; background: #ffffff; margin-left: -5px;">
-                <div class="left col-1 colunaCorpoComum colunaIdFicheiro"> <%= funcionario.id %> </div>
-                <div class="left col-5 colunaCorpoComum colunaNomeFicheiro"> <%= funcionario.nome %> </div>
-                <div class="left col-3 colunaCorpoComum colunaCpfFicheiro"> <%= funcionario.cpf %> </div>
-              </div>
-            </button>
-          <% end %>
-        </div>
-      </div>
 
     </div>
 
