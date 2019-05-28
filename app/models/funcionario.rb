@@ -1,7 +1,7 @@
 class Funcionario < Pessoa
 
   def self.pesquisa query
-    funcionarios = listaFuncionarios(1);
+    funcionarios = listaFuncionarios;
     pesquisaIds = funcionarios.pesquisaId(query)
     pesquisaCpfs = funcionarios.pesquisaCpf(query)
     pesquisaNomes = funcionarios.pesquisaNome(query)
@@ -22,7 +22,7 @@ class Funcionario < Pessoa
     resultado
   end
 
-  scope :listaFuncionarios, ->(query) { where("tipo like ?", "%#{query}%") }
+  scope :listaFuncionarios, -> { where("tipo like ?", "%#{1}%") }
   scope :pesquisaId, ->(query) { where("id like ?", "%#{query}%") }
   scope :pesquisaCpf, ->(query) { where("cpf like ?", "%#{query}%") }
   scope :pesquisaNome, ->(query) { where("nome like ?", "%#{query}%") }

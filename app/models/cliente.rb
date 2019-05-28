@@ -1,7 +1,7 @@
 class Cliente < Pessoa
 
   def self.pesquisa query
-    clientes = listaClientes(0);
+    clientes = listaClientes;
     pesquisaIds = clientes.pesquisaId(query)
     pesquisaCpfs = clientes.pesquisaCpf(query)
     pesquisaNomes = clientes.pesquisaNome(query)
@@ -22,7 +22,7 @@ class Cliente < Pessoa
     resultado
   end
 
-  scope :listaClientes, ->(query) { where("tipo like ?", "%#{query}%") }
+  scope :listaClientes, -> { where("tipo like ?", "%#{0}%") }
   scope :pesquisaId, ->(query) { where("id like ?", "%#{query}%") }
   scope :pesquisaCpf, ->(query) { where("cpf like ?", "%#{query}%") }
   scope :pesquisaNome, ->(query) { where("nome like ?", "%#{query}%") }
