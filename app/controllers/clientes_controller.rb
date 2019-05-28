@@ -1,7 +1,22 @@
 class ClientesController < ApplicationController
 
+  @@resultadoPositivoCliente = ""
+
+  def self.getClienteSalvo
+    @@resultadoPositivoCliente
+  end
+  def self.setClienteSalvo valor
+    @@resultadoPositivoCliente = valor
+  end
+
   def index
-    @clientes = Cliente.lista_clientes
+
+    if params[:pesquisa] && params[:pesquisa] != ''
+      @clientes = Cliente.pesquisa(params[:pesquisa])
+    else
+      @clientes = Cliente.listaClientes 0
+    end
+
   end
 
   def new
@@ -10,20 +25,22 @@ class ClientesController < ApplicationController
 
   def edit
     @cliente = Cliente.find(params[:id])
-    @clientes = Cliente.lista_clientes
+    @clientes = Cliente.listaClientes 0
     render 'clientes/index'
   end
 
   def update
     @cliente = Cliente.find(params[:id])
     @cliente.update(cliente_params)
+    @@resultadoPositivoCliente = "Cliente Atualizado"
     redirect_to clientes_path
   end
 
   def create
     @cliente = Cliente.new(cliente_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
-    @cliente.tipo = 0;
+    @cliente.tipo = 0
+    @@resultadoPositivoCliente = "Cliente Salvo"
     @cliente.save
     redirect_to
   end
@@ -31,6 +48,7 @@ class ClientesController < ApplicationController
   def destroy
     @cliente = Cliente.find(params[:id])
     @cliente.destroy
+    @@resultadoPositivoCliente = "Cliente Deletado";
     redirect_to clientes_path
   end
 
