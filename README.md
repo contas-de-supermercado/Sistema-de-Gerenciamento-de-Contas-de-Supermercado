@@ -11,7 +11,7 @@ O nosso projeto tem como principal objetivo oferecer funcionalidades que possam 
 
 > José Guilherme da Silva Arruda
 
-> Gabriel Gomes 
+> Gabriel Gomes Ferreira
 
 ## Cliente
 > Telma Maria Leite da Silva
