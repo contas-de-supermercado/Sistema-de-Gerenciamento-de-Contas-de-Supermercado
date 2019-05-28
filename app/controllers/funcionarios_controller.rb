@@ -1,7 +1,22 @@
 class FuncionariosController < ApplicationController
 
+  @@resultadoPositivoFuncionario= ""
+
+  def self.getResultadoPositivoFuncionario
+    @@resultadoPositivoFuncionario
+  end
+  def self.setResultadoPositivoFuncionario valor
+    @@resultadoPositivoFuncionario = valor
+  end
+
   def index
-    @funcionarios = Funcionario.lista_funcionarios
+
+    if params[:pesquisa] && params[:pesquisa] != ''
+      @funcionarios = Funcionario.pesquisa(params[:pesquisa])
+    else
+      @funcionarios = Funcionario.listaFuncionarios 1
+    end
+
   end
 
   def new
@@ -10,13 +25,14 @@ class FuncionariosController < ApplicationController
 
   def edit
     @funcionario = Funcionario.find(params[:id])
-    @funcionarios = Funcionario.lista_funcionarios
+    @funcionarios = Funcionario.listaFuncionarios 1
     render 'funcionarios/index'
   end
 
   def update
     @funcionario = Funcionario.find(params[:id])
     @funcionario.update(funcionario_params)
+    @@resultadoPositivoFuncionario = "Funcionário Atualizado";
     redirect_to funcionarios_path
   end
 
@@ -25,12 +41,14 @@ class FuncionariosController < ApplicationController
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @funcionario.tipo = 1;
     @funcionario.save
+    @@resultadoPositivoFuncionario = "Funcionário salvo"
     redirect_to
   end
 
   def destroy
     @funcionario = Funcionario.find(params[:id])
     @funcionario.destroy
+    @@resultadoPositivoFuncionario = "Funcionário Deletado";
     redirect_to funcionarios_path
   end
 
