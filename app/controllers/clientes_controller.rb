@@ -10,13 +10,8 @@ class ClientesController < ApplicationController
   end
 
   def index
-
-    if params[:pesquisa] && params[:pesquisa] != ''
-      @clientes = Cliente.pesquisa(params[:pesquisa])
-    else
-      @clientes = Cliente.listaClientes
-    end
-
+    @cliente = Cliente.new
+    carregar_tabela(params[:pesquisa])
   end
 
   def new
@@ -31,18 +26,40 @@ class ClientesController < ApplicationController
 
   def update
     @cliente = Cliente.find(params[:id])
-    @cliente.update(cliente_params)
-    @@resultadoPositivoCliente = "Cliente Atualizado"
-    redirect_to clientes_path
+
+
+    if @cliente.update(cliente_params)
+      @@resultadoPositivoCliente = "Cliente Atualizado"
+      redirect_to clientes_path
+    else
+      carregar_tabela('')
+      render 'clientes/index'
+    end
+
   end
 
   def create
     @cliente = Cliente.new(cliente_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @cliente.tipo = 0
-    @@resultadoPositivoCliente = "Cliente Salvo"
-    @cliente.save
+
+
+    if @cliente.save
+      @@resultadoPositivoCliente = "Cliente Salvo"
+      redirect_to
+    else
+      carregar_tabela('')
+      render 'clientes/index'
+    end
+=begin
+    if(@cliente.save)
+      @@resultadoPositivoCliente = "Cliente Salvo"
+    else
+      @@resultadoPositivoCliente = "Dados invalidos"
+    end
+
     redirect_to
+=end
   end
 
   def destroy
@@ -55,5 +72,13 @@ class ClientesController < ApplicationController
   private
   def cliente_params
     params.require(:cliente).permit(:nome, :cpf, :telefone, :celular, :email, :senha, :cidade, :rua, :numero)
+  end
+
+  def carregar_tabela (pesquisa)
+    if pesquisa && pesquisa != ''
+      @clientes = Cliente.pesquisa(pesquisa)
+    else
+      @clientes = Cliente.listaClientes
+    end
   end
 end
