@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20190528053818) do
     t.string "dataPagamento"
     t.integer "funcionario"
     t.integer "cliente"
+    t.string "comprador"
+    t.string "parentesco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -143,6 +143,18 @@
           <span class="focus-input100"></span>
         </div>
 
+        <div class="elemento_formulario quantidade_elemento_linha_formulario">
+          <%= form.label :comprador, class:"label-elemento_formulario" %><br>
+          <%= form.text_field :comprador, class:"input100", placeholder:"Quem está comprando?" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="elemento_formulario quantidade_elemento_linha_formulario">
+          <span class="label-elemento_formulario" name="parentesco">Grau de Parentesco do Comprador</span><br>
+          <%= form.text_field :parentesco, class:"input100", placeholder:"0.0" %>
+          <span class="focus-input100"></span>
+        </div>
+
         <% if(FicheirosController.getResultadoPositivoFicheiro != "") %>
           <span id="resultadoPositivo" class="status_processo">
             <%= FicheirosController.getResultadoPositivoFicheiro %>

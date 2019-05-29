@@ -1,3 +1,5 @@
+require "time"
+
 class FicheirosController < ApplicationController
 
   @@resultadoPositivoFicheiro = ""
@@ -37,6 +39,11 @@ class FicheirosController < ApplicationController
       if cliente.count > 0
         @conta.cliente = cliente[0].id
 
+        time = Time.now
+        @conta.dataCompra = time;
+        if(@conta.status == "Paga")
+          @conta.dataPagamento = time;
+        end
         @@resultadoPositivoFicheiro = "Conta salva"
         @conta.save
       end
@@ -47,7 +54,7 @@ class FicheirosController < ApplicationController
 
   private
   def ficheiro_params
-    params.require(:ficheiro).permit(:cliente, :funcionario, :valor, :juros, :status)
+    params.require(:ficheiro).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
   end
 
 end

@@ -8,6 +8,8 @@ class CreateConta < ActiveRecord::Migration[5.1]
       t.string :dataPagamento
       t.integer :funcionario
       t.integer :cliente
+      t.string :comprador
+      t.string :parentesco
 
       t.timestamps
     end
