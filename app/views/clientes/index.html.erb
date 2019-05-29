@@ -82,11 +82,11 @@
           <span class="focus-input100"></span>
         </div>
 
-        <% if(ClientesController.getClienteSalvo != "") %>
+        <% if(ClientesController.getResultadoPositivoCliente != "") %>
           <span id="resultadoPositivo" class="status_processo">
-            <%= ClientesController.getClienteSalvo %>
+            <%= ClientesController.getResultadoPositivoCliente %>
           </span>
-          <%ClientesController.setClienteSalvo("") %>
+          <%ClientesController.setResultadoPositivoCliente("") %>
         <% end %>
 
 
@@ -175,8 +175,10 @@
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
+
                             method: :delete,
                             data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' },id:"d-#{'delete-'+cliente.cpf}" %>
+
               </div>
             </div>
           <% end %>

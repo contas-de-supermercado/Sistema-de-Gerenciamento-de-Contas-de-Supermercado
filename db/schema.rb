@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190526214809) do
+ActiveRecord::Schema.define(version: 20190528053818) do
+
+  create_table "conta", force: :cascade do |t|
+    t.float "valor"
+    t.float "juros"
+    t.string "status"
+    t.string "dataCompra"
+    t.string "dataPagamento"
+    t.integer "funcionario"
+    t.integer "cliente"
+    t.string "comprador"
+    t.string "parentesco"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pessoas", force: :cascade do |t|
     t.string "nome"

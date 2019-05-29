@@ -2,10 +2,10 @@ class ClientesController < ApplicationController
 
   @@resultadoPositivoCliente = ""
 
-  def self.getClienteSalvo
+  def self.getResultadoPositivoCliente
     @@resultadoPositivoCliente
   end
-  def self.setClienteSalvo valor
+  def self.setResultadoPositivoCliente valor
     @@resultadoPositivoCliente = valor
   end
 
