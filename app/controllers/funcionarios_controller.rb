@@ -10,8 +10,10 @@ class FuncionariosController < ApplicationController
   end
 
   def index
+
     @funcionario = Funcionario.new
     carregar_tabela(params[:pesquisa])
+
   end
 
   def new
@@ -34,12 +36,14 @@ class FuncionariosController < ApplicationController
       carregar_tabela('')
       render 'funcionarios/index'
     end
+
   end
 
   def create
     @funcionario = Funcionario.new(funcionario_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @funcionario.tipo = 1;
+
     if @funcionario.save
       @@resultadoPositivoFuncionario = "Funcionário salvo"
       redirect_to
@@ -47,6 +51,7 @@ class FuncionariosController < ApplicationController
       carregar_tabela('')
       render 'funcionarios/index'
     end
+
   end
 
   def destroy
@@ -68,4 +73,5 @@ class FuncionariosController < ApplicationController
       @funcionarios = Funcionario.listaFuncionarios
     end
   end
+
 end

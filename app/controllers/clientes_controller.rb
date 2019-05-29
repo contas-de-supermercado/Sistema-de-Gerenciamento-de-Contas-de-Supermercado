@@ -27,6 +27,7 @@ class ClientesController < ApplicationController
   def update
     @cliente = Cliente.find(params[:id])
 
+
     if @cliente.update(cliente_params)
       @@resultadoPositivoCliente = "Cliente Atualizado"
       redirect_to clientes_path
@@ -34,12 +35,14 @@ class ClientesController < ApplicationController
       carregar_tabela('')
       render 'clientes/index'
     end
+
   end
 
   def create
     @cliente = Cliente.new(cliente_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @cliente.tipo = 0
+
 
     if @cliente.save
       @@resultadoPositivoCliente = "Cliente Salvo"

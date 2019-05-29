@@ -102,6 +102,7 @@
           </button>
         </div>
 
+
         <% if @funcionario.errors.any? %>
           <div id="error_explanation">
             <h2>
@@ -115,6 +116,7 @@
             </ul>
           </div>
         <% end %>
+
 
       <% end %>
 
@@ -148,6 +150,7 @@
         </div>
 
         <div style="height: 500px; overflow-y:auto; overflow-x:hidden;">
+
           <% @funcionarios.each do |funcionario| %>
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
               <div class="left col-1 colunaCorpoComum colunaId"> <%= funcionario.id %> </div>
@@ -160,6 +163,7 @@
                 <%= link_to 'Deletar', funcionario_path(funcionario), class:"botao_tabela",
                             method: :delete,
                             data: { confirm: 'Tem certeza que deseja excluir esse Funcionário?' }, id:"d-#{'delete-'+funcionario.cpf}"%>
+
               </div>
             </div>
           <% end %>
