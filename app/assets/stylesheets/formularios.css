@@ -146,6 +146,11 @@ iframe {
   width: calc((100% - 100px) / 3);
 }
 
+.quantidade_elemento_linha_formulario_ficheiro {
+    margin-top: 20px;
+    width: calc((100% - 30px) / 2);
+}
+
 .label-elemento_formulario {
   font-family: Poppins-Regular;
   font-size: 15px;
@@ -293,5 +298,14 @@ textarea.input100 {
 .formulario_pesquisa{
     padding-bottom: 0px;
 }
+
+.selection_formulario_ficheiro{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+}
+
+
+
 
 

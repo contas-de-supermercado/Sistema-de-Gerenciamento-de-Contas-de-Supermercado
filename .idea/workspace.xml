@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="385ad329-b281-4f87-9f6e-df04ecc8984e" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/contas_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/contas_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ficheiros_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ficheiros_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/conta.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/conta.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/clientes/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/clientes/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/contas/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/contas/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ficheiros/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ficheiros/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20190528053818_create_conta.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20190528053818_create_conta.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/contum_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/conta_test.rb" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/formularios.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/formularios.css" afterDir="false" />
@@ -16,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/app/views/contas/contas.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/support/env.rb" beforeDir="false" afterPath="$PROJECT_DIR$/features/support/env.rb" afterDir="false" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +37,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Sistema_de_Gerenciamento_de_Contas_de_Supermercado@Development__SistemaFinaceiroMercado.rcov" NAME="Development: SistemaFinaceiroMercado Coverage Results" MODIFIED="1559001242522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SistemaFinaceiroMercado" />
+    <SUITE FILE_PATH="coverage/Sistema_de_Gerenciamento_de_Contas_de_Supermercado@test_Deve_salvar_conta_com_um_cliente__um_funcionario_e_um_valor__SistemaFinaceiroMercado.rcov" NAME="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado Coverage Results" MODIFIED="1559097520344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SistemaFinaceiroMercado" />
+    <SUITE FILE_PATH="coverage/Sistema_de_Gerenciamento_de_Contas_de_Supermercado@test__SistemaFinaceiroMercado.rcov" NAME="test: SistemaFinaceiroMercado Coverage Results" MODIFIED="1559097016421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SistemaFinaceiroMercado" />
+    <SUITE FILE_PATH="coverage/Sistema_de_Gerenciamento_de_Contas_de_Supermercado@Development__SistemaFinaceiroMercado.rcov" NAME="Development: SistemaFinaceiroMercado Coverage Results" MODIFIED="1559097083839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SistemaFinaceiroMercado" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -42,6 +57,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/models/conta_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+=======
 
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/contas_controller.rb">
@@ -73,6 +95,7 @@
             <state relative-caret-position="206">
               <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
             </state>
           </provider>
         </entry>
@@ -96,10 +119,18 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
+      <find>nome</find>
+      <find>elemento_formulario</find>
+      <find>quantidade_elemento_linha_formulario</find>
+      <find>heig</find>
+      <find>actionview</find>
+=======
       <find>lang</find>
       <find>show</find>
       <find>ClientesController</find>
       <find>cliente</find>
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,6 +144,30 @@
         <option value="$PROJECT_DIR$/features/step_definitions/t.rb" />
         <option value="$PROJECT_DIR$/features/teste.feature" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/views/funcionarios/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/cliente.rb" />
+        <option value="$PROJECT_DIR$/app/models/funcionario.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/funcionarios_controller.rb" />
+        <option value="$PROJECT_DIR$/features/Pessoa.feature" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/tabelas.css" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/formularios.css" />
+        <option value="$PROJECT_DIR$/app/models/conta.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/clientes_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/clientes/index.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190528053818_create_conta.rb" />
+        <option value="$PROJECT_DIR$/db/schema.rb" />
+        <option value="$PROJECT_DIR$/app/models/conta.rb" />
+        <option value="$PROJECT_DIR$/app/views/contas/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/contas/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/ficheiros/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/ficheiros_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/ficheiros/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/contas_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/contas/index.html.erb" />
+        <option value="$PROJECT_DIR$/test/models/conta_test.rb" />
+=======
         <option value="$PROJECT_DIR$/app/controllers/clientes_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/contas/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/contas.rb" />
@@ -127,6 +182,7 @@
         <option value="$PROJECT_DIR$/app/controllers/ficheiro_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/contas/contas.html.erb" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
       </list>
     </option>
   </component>
@@ -137,9 +193,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -149,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,11 +216,16 @@
             <path>
               <item name="Sistema-de-Gerenciamento-de-Contas-de-Supermercado" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sistema-de-Gerenciamento-de-Contas-de-Supermercado" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sistema-de-Gerenciamento-de-Contas-de-Supermercado" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sistema-de-Gerenciamento-de-Contas-de-Supermercado" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+=======
               <item name="app" type="462c0819:PsiDirectoryNode" />
 
               <item name="models" type="462c0819:PsiDirectoryNode" />
@@ -205,6 +267,7 @@
               <item name="tmp" type="462c0819:PsiDirectoryNode" />
 
             </path>
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
           </expand>
           <select />
         </subPane>
@@ -217,9 +280,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
 
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/contas" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -227,8 +294,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< HEAD
+      <recent name="C:\Users\Felipe\Sistema-de-Gerenciamento-de-Contas-de-Supermercado\app\views\ficheiros" />
+=======
       <recent name="C:\Users\Guilherme silva\Sistema-de-Gerenciamento-de-Contas-de-Supermercado\app\views\contas" />
       <recent name="C:\Users\Guilherme silva\Sistema-de-Gerenciamento-de-Contas-de-Supermercado\app\views\clientes" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Guilherme silva\Sistema-de-Gerenciamento-de-Contas-de-Supermercado\app\views\contas" />
@@ -256,7 +327,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Rails.Development: SistemaFinaceiroMercado">
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado">
     <configuration name="Development: SistemaFinaceiroMercado" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="SistemaFinaceiroMercado" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -336,6 +407,37 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method v="2" />
     </configuration>
+    <configuration name="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+      <module name="SistemaFinaceiroMercado" />
+      <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/models/conta_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Test::Unit/Shoulda/Minitest.test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
@@ -353,14 +455,37 @@
       <workItem from="1558408833235" duration="540000" />
       <workItem from="1558498993595" duration="156000" />
       <workItem from="1558906923686" duration="2104000" />
+<<<<<<< HEAD
+      <workItem from="1558967097861" duration="7981000" />
+      <workItem from="1558996639146" duration="18005000" />
+      <workItem from="1559075966871" duration="17911000" />
+=======
 
       <workItem from="1558983723078" duration="5729000" />
       <workItem from="1559086949683" duration="108000" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="test__SistemaFinaceiroMercado - 2019.05.28 at 23h 30m 27s.xml">
+      <configuration name="test: SistemaFinaceiroMercado" configurationId="RakeRunConfigurationType" />
+    </history-entry>
+    <history-entry file="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor__SistemaFinaceiroMercado - 2019.05.28 at 23h 35m 33s.xml">
+      <configuration name="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor__SistemaFinaceiroMercado - 2019.05.28 at 23h 36m 27s.xml">
+      <configuration name="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor__SistemaFinaceiroMercado - 2019.05.28 at 23h 38m 51s.xml">
+      <configuration name="test_Deve_salvar_conta_com_um_cliente,_um_funcionario_e_um_valor: SistemaFinaceiroMercado" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="46995000" />
+=======
 
     <option name="totallyTimeSpent" value="8935000" />
   </component>
@@ -373,44 +498,107 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27609682" />
+=======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29500756" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45335516" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.31423897" />
+=======
       <window_info anchor="bottom" id="Run" order="2" weight="0.3878887" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.1898527" />
+=======
 
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3289689" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27609682" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32405892" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.31423897" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.1898527" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
+=======
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/controllers/clientes_controller.rb</url>
+<<<<<<< HEAD
+          <line>34</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/clientes_controller.rb</url>
+          <line>33</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/clientes_controller.rb</url>
+          <line>22</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/ficheiros_controller.rb</url>
+          <line>12</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/test/models/conta_test.rb</url>
+          <line>7</line>
+          <option name="timeStamp" value="44" />
+=======
           <line>23</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -468,14 +656,18 @@
           <url>file://$PROJECT_DIR$/app/controllers/ficheiro_controller.rb</url>
           <line>2</line>
           <option name="timeStamp" value="30" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+<<<<<<< HEAD
+=======
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sistema_de_Gerenciamento_de_Contas_de_Supermercado@Development__SistemaFinaceiroMercado.rcov" NAME="Development: SistemaFinaceiroMercado Coverage Results" MODIFIED="1558987428609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SistemaFinaceiroMercado" />
   </component>
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/features/step_definitions/t.rb" />
     <entry file="file://$PROJECT_DIR$/features/teste.feature" />
@@ -491,8 +683,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+    <entry file="file://$PROJECT_DIR$/features/support/env.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/funcionario.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/Pessoa.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/formularios.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="304" column="16" selection-start-line="304" selection-start-column="16" selection-end-line="304" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tabelas.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+          <folding>
+            <element signature="e#14#846#0" />
+            <element signature="e#864#987#0" />
+            <element signature="e#1009#1338#0" />
+            <element signature="e#1362#1550#0" />
+            <element signature="e#1563#1740#0" />
+            <element signature="e#1760#1807#0" />
+            <element signature="e#1826#1893#0" />
+            <element signature="e#1904#1922#0" />
+            <element signature="e#1935#1998#0" />
+            <element signature="e#2010#2029#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/funcionarios_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/clientes/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="141" column="41" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/cliente.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="67" />
+          <folding>
+            <element signature="e#26#565#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20190526214809_create_pessoas.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -501,64 +771,26 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/db/migrate/20190528053818_create_conta.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/conta.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/funcionarios/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/clientes/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="154" selection-end-column="7" />
-          <folding>
-            <element signature="n#body#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#!!top" />
-            <element signature="e#776#4262#0#ruby" />
-            <element signature="e#4434#5004#0#ruby" />
-            <element signature="n#div#12;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/formularios.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="137" column="2" selection-start-line="137" selection-start-column="2" selection-end-line="141" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contas/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="130" column="20" lean-forward="true" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#body#0;n#!!top" />
-            <element signature="e#795#4281#0#ruby" />
-            <element signature="e#4453#5023#0#ruby" />
-            <element signature="n#style#0;n#div#1;n#div#12;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#12;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#12;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#1;n#div#12;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/support/env.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+        <state relative-caret-position="102">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+=======
 
     <entry file="file://$PROJECT_DIR$/app/helpers/clientes_helper.rb">
       <provider selected="true" editor-type-id="text-editor" />
@@ -570,6 +802,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
         </state>
       </provider>
     </entry>
@@ -579,6 +812,72 @@
     <entry file="file://$PROJECT_DIR$/app/views/clientes/teste.html.erb" />
     <entry file="file://C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.6/lib/action_controller/base.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="363">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="e#163#250#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/funcionarios/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="144" column="14" selection-start-line="144" selection-start-column="14" selection-end-line="148" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ficheiros/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="107" column="54" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#!!top" />
+            <element signature="e#898#1498#0#ruby" />
+            <element signature="e#1685#2325#0#ruby" />
+            <element signature="n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="e#4791#7745#0#ruby" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ficheiros/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="152" column="99" selection-start-line="152" selection-start-column="99" selection-end-line="152" selection-end-column="99" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#button#0;n#div#1;n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#button#0;n#div#1;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/contas_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#50#172#0" />
+            <element signature="e#311#589#0" />
+            <element signature="e#389#510#0" />
+            <element signature="e#610#772#0" />
+            <element signature="e#677#706#0" />
+          </folding>
+=======
         <state relative-caret-position="137">
           <caret line="135" column="35" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="35" />
         </state>
@@ -604,6 +903,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
         </state>
       </provider>
     </entry>
@@ -615,14 +915,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/conta/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="140">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+=======
         <state relative-caret-position="17">
           <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/tabelas.css">
+    <entry file="file://$PROJECT_DIR$/app/views/contas/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="17">
+          <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contas/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+            <element signature="n#div#7;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/conta_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+=======
 
         <state relative-caret-position="51">
           <caret line="3" column="68" lean-forward="true" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
@@ -717,5 +1069,6 @@
       </provider>
     </entry>
 
+>>>>>>> fd393d74f671a33d7ca241829bbd86d4499ef238
   </component>
 </project>
