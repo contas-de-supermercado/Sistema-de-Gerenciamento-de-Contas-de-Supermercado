@@ -11,7 +11,6 @@
         <li><%= link_to 'Cliente', clientes_path, class:"current"%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
         <li><%= link_to 'Contas', contas_path %></li>
-        <li><%= link_to 'Contas Atrasadas', '#' %></li>
       </ul>
     </div>
   </div>
@@ -134,26 +133,6 @@
 
       <% end %>
 
-
-      <% # formulario de pesquisa ......................................... %>
-      <%= form_tag(clientes_path, method: :get, class:"formulario formulario_pesquisa") do %>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 380px">
-          <button class="botao_tabela" style="height: 50px">
-						<span>
-							Pesquisar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-          </button>
-        </div>
-
-      <% end %>
-
       <% # tabela de cadastramento..................................... %>
       <div class="col-12" >
         <div class="menuTabela col-10 offset-1 row" style="width: 1140px;">
@@ -184,9 +163,7 @@
           <% end %>
         </div>
       </div>
-
     </div>
-
   </div>
   <div id="footer"> Informações Sobre o Mercado </div>
 </div>
