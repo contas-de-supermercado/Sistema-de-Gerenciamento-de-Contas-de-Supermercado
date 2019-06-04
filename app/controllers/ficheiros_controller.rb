@@ -31,12 +31,12 @@ class FicheirosController < ApplicationController
 
   def create
     @conta = Conta.new(ficheiro_params)
-    funcionario = Funcionario.pesquisaCpf @conta.funcionario
-    if funcionario.count > 0
+    funcionario = Funcionario.listaFuncionarios.pesquisaCpf(@conta.funcionario)
+    if @conta.funcionario && funcionario.count > 0
       @conta.funcionario = funcionario[0].id
 
       cliente = Cliente.pesquisaCpf @conta.cliente
-      if cliente.count > 0
+      if @conta.cliente && cliente.count > 0
         @conta.cliente = cliente[0].id
 
         time = Time.now
@@ -45,6 +45,12 @@ class FicheirosController < ApplicationController
           @conta.dataPagamento = time;
         end
         @@resultadoPositivoFicheiro = "Conta salva"
+        if !@conta.juros
+          @conta.juros = 0
+        end
+        if !@conta.valor
+          @conta.valor = 0
+        end
         @conta.save
       end
     end

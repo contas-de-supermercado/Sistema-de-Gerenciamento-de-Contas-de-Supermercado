@@ -24,6 +24,40 @@ class ContasController < ApplicationController
     @conta.cliente = Cliente.find(@conta.cliente).cpf
   end
 
+  def update
+    @conta = Conta.new(conta_params)
+    funcionario = Funcionario.pesquisaCpf @conta.funcionario
+    if @conta.funcionario && funcionario.count > 0
+      @conta.funcionario = funcionario[0].id
+
+      cliente = Cliente.pesquisaCpf @conta.cliente
+      if @conta.cliente && cliente.count > 0
+        @conta.cliente = cliente[0].id
+
+        if(@conta.status == "Paga")
+          if(@conta.dataPagamento == '')
+            time = Time.now
+            @conta.dataPagamento = time;
+          end
+        end
+
+        if !@conta.juros
+          @conta.juros = 0
+        end
+        if !@conta.valor
+          @conta.valor = 0
+        end
+
+        @cont = Conta.find(params[:id])
+        @cont.update(cliente: @conta.cliente,funcionario: @conta.funcionario, valor: @conta.valor, juros: @conta.juros,
+                     status: @conta.status, dataPagamento: @conta.dataPagamento,
+                     comprador: @conta.comprador, parentesco: @conta.parentesco)
+        carregarContas @conta.cliente
+        render 'contas/index'
+      end
+    end
+  end
+
   def destroy
     @conta = Conta.find(params[:id])
     carregarContas(@conta.cliente)
@@ -32,6 +66,10 @@ class ContasController < ApplicationController
   end
 
   private
+  def conta_params
+    params.require(:conta).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
+  end
+
   def carregarContas id
     contas = Conta.listaContasCliente(id)
     @contasDevendo = contas.listaContasDevendo;

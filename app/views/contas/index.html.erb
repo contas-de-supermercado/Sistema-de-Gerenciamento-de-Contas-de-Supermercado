@@ -84,6 +84,10 @@
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; margin-left: 10px; background: #eeeeee;">
               <div class="left col-1 colunaCorpoComum colunaId"> <%= conta.id %> </div>
               <div class="left col-5 colunaCorpoComum colunaNome"> <%= conta.dataCompra %> </div>
+              <%if conta.juros > 0
+                  conta.valor += (conta.juros/100) * conta.valor;
+                end
+              %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
@@ -117,6 +121,10 @@
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; margin-left: 10px; background: #eeeeee;">
               <div class="left col-1 colunaCorpoComum colunaId"> <%= conta.id %> </div>
               <div class="left col-5 colunaCorpoComum colunaNome"> <%= conta.dataCompra %> </div>
+              <%if conta.juros > 0
+                  conta.valor += (conta.juros/100) * conta.valor;
+                end
+              %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
@@ -150,6 +158,10 @@
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; margin-left: 10px; background: #eeeeee;">
               <div class="left col-1 colunaCorpoComum colunaId"> <%= conta.id %> </div>
               <div class="left col-5 colunaCorpoComum colunaNome"> <%= conta.dataPagamento %> </div>
+              <%if conta.juros > 0
+                  conta.valor += (conta.juros/100) * conta.valor;
+                end
+              %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
