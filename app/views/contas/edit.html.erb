@@ -11,7 +11,6 @@
         <li><%= link_to 'Cliente', clientes_path%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
         <li><%= link_to 'Contas', contas_path, class:"current" %></li>
-        <li><%= link_to 'Contas Atrasadas', '#' %></li>
       </ul>
     </div>
   </div>
@@ -24,7 +23,7 @@
       </span>
 
       <% # formulario de cadastramento ..................................... %>
-      <%= form_with model: @conta, scope: :conta, url: conta_path, class:"formulario", local: true do |form| %>
+      <%= form_with(model: @conta, local: true, url:conta_path, class:"formulario") do |form|  %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
           <span class="label-elemento_formulario" name="cliente">Cpf Cliente</span><br>
@@ -54,9 +53,18 @@
           <span class="label-elemento_formulario">Status</span>
           <div>
             <select class="selection_formulario_ficheiro" name="conta[status]">
-              <option>Devendo</option>
-              <option>Paga</option>
-              <option>Atrasada</option>
+              <%devendo = paga = atrasada = ''
+                if @conta.status == 'Devendo'
+                  devendo = 'selected'
+                elsif @conta.status == 'Paga'
+                  paga = 'selected'
+                else
+                  atrasada = 'selected'
+                end
+              %>
+              <option <%= devendo %>>Devendo</option>
+              <option <%= paga %>>Paga</option>
+              <option <%= atrasada %>>Atrasada</option>
             </select>
           </div>
           <span class="focus-input100"></span>

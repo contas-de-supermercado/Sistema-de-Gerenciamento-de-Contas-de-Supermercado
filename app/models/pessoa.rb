@@ -13,6 +13,6 @@ class Pessoa < ApplicationRecord
   validates :rua, presence: {message: " nao pode ser em branco" }
   validates :numero, presence: {message: " nao pode ser em branco" }
   validates :celular, presence: {message: " nao pode ser em branco" },
-            length: { minimum: 9, too_short: "deve ter pelo menos 9 caracteres"},
-            length: { maximum: 11, too_long: "deve ter no maximo 11 caracteres" }
+            length: { in: 9..11 , message: " numero com tamanho incorreto"}
+
 end
