@@ -12,6 +12,7 @@ class Pessoa < ApplicationRecord
   validates :cidade, presence: {message: " nao pode ser em branco" }
   validates :rua, presence: {message: " nao pode ser em branco" }
   validates :numero, presence: {message: " nao pode ser em branco" }
-  validates :celular, presence: {message: " nao pode ser em branco" }
+  validates :celular, presence: {message: " nao pode ser em branco" },
+            length: { in: 9..11 , message: " numero com tamanho incorreto"}
 
 end
