@@ -1,4 +1,13 @@
-class ContasController < ApplicationController
+class ContumsController < ApplicationController
+
+  @@resultadoPositivoFicheiro = ""
+
+  def self.getResultadoPositivoFicheiro
+    @@resultadoPositivoFicheiro
+  end
+  def self.setResultadoPositivoFicheiro valor
+    @@resultadoPositivoFicheiro  = valor
+  end
 
   def index
 
@@ -14,20 +23,30 @@ class ContasController < ApplicationController
 
   end
 
+  def new
+    if params[:pesquisaCliente] && params[:pesquisaCliente] != ''
+      @clientes = Cliente.pesquisa(params[:pesquisaCliente])
+    else
+      @clientes = Cliente.listaClientes
+    end
+
+    if params[:pesquisaFuncionario] && params[:pesquisaFuncionario] != ''
+      @funcionarios = Funcionario.pesquisa(params[:pesquisaFuncionario])
+    else
+      @funcionarios = Funcionario.listaFuncionarios
+    end
+
+  end
+
   def show
     carregarContas(params[:id])
     render 'contums/index'
   end
 
-  def new
-
-    @conta = Contum.new
-  end
-
   def edit
-    @conta = Contum.find(params[:id])
-    @conta.funcionario = Funcionario.find(@conta.funcionario).cpf
-    @conta.cliente = Cliente.find(@conta.cliente).cpf
+    @contum = Contum.find(params[:id])
+    @contum.funcionario = Funcionario.find(@contum.funcionario).cpf
+    @contum.cliente = Cliente.find(@contum.cliente).cpf
   end
 
   def update
@@ -60,7 +79,7 @@ class ContasController < ApplicationController
                      status: @conta.status, dataPagamento: @conta.dataPagamento,
                      comprador: @conta.comprador, parentesco: @conta.parentesco)
         carregarContas @conta.cliente
-        render 'contas/index'
+        render 'contums/index'
       end
     end
   end
@@ -92,7 +111,7 @@ class ContasController < ApplicationController
       end
     end
 
-    redirect_to
+    redirect_to new_contum_path
   end
 
   def destroy
@@ -100,20 +119,20 @@ class ContasController < ApplicationController
     @conta = Contum.find(params[:id])
     carregarContas(@conta.cliente)
     @conta.destroy
-    render 'contas/index'
+    render 'contums/index'
   end
 
   private
   def conta_params
-    params.require(:conta).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
+    params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
   end
 
   def carregarContas id
 
     contas = Contum.listaContasCliente(id)
-    @contasDevendo = contas.listaContasDevendo;
-    @contasAtrasadas = contas.listaContasAtrasadas;
-    @contasPagas = contas.listaContasPagas;
+    @contasDevendo = contas.listaContasDevendo
+    @contasAtrasadas = contas.listaContasAtrasadas
+    @contasPagas = contas.listaContasPagas
     @clientes = Cliente.listaClientes
   end
 

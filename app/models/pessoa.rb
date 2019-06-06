@@ -3,7 +3,8 @@ class Pessoa < ApplicationRecord
             length: { minimum: 3, too_short: "deve ter pelo menos 3 caracteres" }
   validates :cpf, presence: {message: " nao pode ser em branco" },
             length: { is: 11 , message: "deve ter 11 caracteres"},
-            uniqueness: {message: " nao pode ser repetido" }
+            uniqueness: {message: " nao pode ser repetido" },
+            numericality: {message: "deve ser um numero"}
   validates :senha, presence: {message: " nao pode ser em branco" },
             length: {minimum: 5,too_short: "deve ter pelo menos 5 caracteres" }
   validates :email, presence: {message: " nao pode ser em branco" },
@@ -13,6 +14,7 @@ class Pessoa < ApplicationRecord
   validates :rua, presence: {message: " nao pode ser em branco" }
   validates :numero, presence: {message: " nao pode ser em branco" }
   validates :celular, presence: {message: " nao pode ser em branco" },
-            length: { in: 9..11 , message: " numero com tamanho incorreto"}
+            length: { in: 9..11 , message: " numero com tamanho incorreto"},
+            numericality: {message: "deve ser um numero"}
 
 end
