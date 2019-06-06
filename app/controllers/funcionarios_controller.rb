@@ -11,11 +11,8 @@ class FuncionariosController < ApplicationController
 
   def index
 
-    if params[:pesquisa] && params[:pesquisa] != ''
-      @funcionarios = Funcionario.pesquisa(params[:pesquisa])
-    else
-      @funcionarios = Funcionario.listaFuncionarios
-    end
+    @funcionario = Funcionario.new
+    carregar_tabela(params[:pesquisa])
 
   end
 
@@ -31,18 +28,30 @@ class FuncionariosController < ApplicationController
 
   def update
     @funcionario = Funcionario.find(params[:id])
-    @funcionario.update(funcionario_params)
-    @@resultadoPositivoFuncionario = "Funcionário Atualizado";
-    redirect_to funcionarios_path
+
+    if @funcionario.update(funcionario_params)
+      @@resultadoPositivoFuncionario = "Funcionário Atualizado";
+      redirect_to funcionarios_path
+    else
+      carregar_tabela('')
+      render 'funcionarios/index'
+    end
+
   end
 
   def create
     @funcionario = Funcionario.new(funcionario_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @funcionario.tipo = 1;
-    @funcionario.save
-    @@resultadoPositivoFuncionario = "Funcionário salvo"
-    redirect_to
+
+    if @funcionario.save
+      @@resultadoPositivoFuncionario = "Funcionário salvo"
+      redirect_to
+    else
+      carregar_tabela('')
+      render 'funcionarios/index'
+    end
+
   end
 
   def destroy
@@ -56,4 +65,13 @@ class FuncionariosController < ApplicationController
   def funcionario_params
     params.require(:funcionario).permit(:nome, :cpf, :telefone, :celular, :email, :senha, :cidade, :rua, :numero, :cargo)
   end
+
+  def carregar_tabela(pesquisa)
+    if pesquisa && pesquisa != ''
+      @funcionarios = Funcionario.pesquisa(pesquisa)
+    else
+      @funcionarios = Funcionario.listaFuncionarios
+    end
+  end
+
 end

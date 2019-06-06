@@ -1,4 +1,5 @@
 class Funcionario < Pessoa
+  validates :cargo, presence: {message: " nao pode ser em branco" }
 
   def self.pesquisa query
     funcionarios = listaFuncionarios;

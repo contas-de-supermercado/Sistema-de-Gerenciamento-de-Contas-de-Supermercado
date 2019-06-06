@@ -11,7 +11,6 @@
         <li><%= link_to 'Cliente', clientes_path, class:"current"%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
         <li><%= link_to 'Contas', contas_path %></li>
-        <li><%= link_to 'Contas Atrasadas', '#' %></li>
       </ul>
     </div>
   </div>
@@ -25,6 +24,8 @@
         <span class="titulo_formulario">
 					Cadastrar Cliente
 				</span>
+
+
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= form.label :nome, class:"label-elemento_formulario" %><br>
@@ -97,6 +98,20 @@
           </button>
         </div>
 
+        <% if @cliente.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@cliente.errors.count, "erros") %>
+              antes de criar o cliente:
+            </h2>
+            <ul>
+              <% @cliente.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
       <% end %>
 
       <% # formulario de pesquisa ......................................... %>
@@ -135,20 +150,19 @@
               <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela",id:"d-#{'edit-'+cliente.cpf}" %>
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
-                            method: :head,
-                            data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' } %>
+                    method: :delete,
+                    data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' },id:"d-#{'delete-'+cliente.cpf}" %>
+
               </div>
             </div>
           <% end %>
         </div>
       </div>
-
     </div>
-
   </div>
   <div id="footer"> Informações Sobre o Mercado </div>
 </div>
