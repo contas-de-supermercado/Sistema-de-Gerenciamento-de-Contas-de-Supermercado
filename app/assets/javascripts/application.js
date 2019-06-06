@@ -13,3 +13,15 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function selecionarCpfCliente(cpf){
+
+    var cpfCliente = document.getElementById('cliente');
+    cpfCliente.value = cpf;
+}
+
+function selecionarCpfFuncionario(cpf){
+
+    var cpfCliente = document.getElementById('funcionario');
+    cpfCliente.value = cpf;
+}

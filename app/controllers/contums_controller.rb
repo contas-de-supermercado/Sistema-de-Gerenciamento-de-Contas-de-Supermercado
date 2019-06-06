@@ -24,18 +24,10 @@ class ContumsController < ApplicationController
   end
 
   def new
-    if params[:pesquisaCliente] && params[:pesquisaCliente] != ''
-      @clientes = Cliente.pesquisa(params[:pesquisaCliente])
-    else
-      @clientes = Cliente.listaClientes
-    end
+    carregarClientes params[:pesquisaCliente]
+    carregarFuncionarios params[:pesquisaFuncionario]
 
-    if params[:pesquisaFuncionario] && params[:pesquisaFuncionario] != ''
-      @funcionarios = Funcionario.pesquisa(params[:pesquisaFuncionario])
-    else
-      @funcionarios = Funcionario.listaFuncionarios
-    end
-
+    @contum = Contum.new
   end
 
   def show
@@ -52,66 +44,61 @@ class ContumsController < ApplicationController
   def update
 
     @conta = Contum.new(conta_params)
-    funcionario = Funcionario.pesquisaCpf @conta.funcionario
-    if @conta.funcionario && funcionario.count > 0
-      @conta.funcionario = funcionario[0].id
 
-      cliente = Cliente.pesquisaCpf @conta.cliente
-      if @conta.cliente && cliente.count > 0
-        @conta.cliente = cliente[0].id
-
-        if(@conta.status == "Paga")
-          if(@conta.dataPagamento == '')
-            time = Time.now
-            @conta.dataPagamento = time;
-          end
-        end
-
-        if !@conta.juros
-          @conta.juros = 0
-        end
-        if !@conta.valor
-          @conta.valor = 0
-        end
-
-        @cont = Contum.find(params[:id])
-        @cont.update(cliente: @conta.cliente,funcionario: @conta.funcionario, valor: @conta.valor, juros: @conta.juros,
-                     status: @conta.status, dataPagamento: @conta.dataPagamento,
-                     comprador: @conta.comprador, parentesco: @conta.parentesco)
-        carregarContas @conta.cliente
-        render 'contums/index'
+    if(@conta.status == "Paga")
+      if(@conta.dataPagamento == '')
+        time = Time.now
+        @conta.dataPagamento = time;
       end
     end
+
+    if !@conta.juros
+      @conta.juros = 0
+    end
+    if !@conta.valor
+      @conta.valor = 0
+    end
+
+    @cont = Contum.find(params[:id])
+    @cont.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
+                 comprador: @conta.comprador, parentesco: @conta.parentesco)
+    carregarContas @cont.cliente
+    render 'contums/index'
   end
 
   def create
-    @conta = Contum.new(conta_params)
-    funcionario = Funcionario.listaFuncionarios.pesquisaCpf(@conta.funcionario)
-    if @conta.funcionario && funcionario.count > 0
-      @conta.funcionario = funcionario[0].id
+    @contum = Contum.new(conta_params)
 
-      cliente = Cliente.pesquisaCpf @conta.cliente
-      if @conta.cliente && cliente.count > 0
-        @conta.cliente = cliente[0].id
-
-        time = Time.now
-        @conta.dataCompra = time;
-        if(@conta.status == "Paga")
-          @conta.dataPagamento = time;
-        end
-
-        @@resultadoPositivoFicheiro = "Contum salva"
-        if !@conta.juros
-          @conta.juros = 0
-        end
-        if !@conta.valor
-          @conta.valor = 0
-        end
-        @conta.save
-      end
+    if @contum.funcionario
+      @contum.funcionario = Funcionario.listaFuncionarios.pesquisaCpf(@contum.funcionario)[0].id
     end
 
-    redirect_to new_contum_path
+    if @contum.cliente
+        @contum.cliente = Cliente.pesquisaCpf(@contum.cliente)[0].id
+    end
+
+    time = Time.now
+    @contum.dataCompra = time;
+    if(@contum.status == "Paga")
+      @contum.dataPagamento = time;
+    end
+
+    if !@contum.juros
+      @contum.juros = 0
+    end
+    if !@contum.valor
+      @contum.valor = 0
+    end
+
+    if @contum.save
+      @@resultadoPositivoFicheiro = "Conta salva"
+      redirect_to new_contum_path
+    else
+      carregarClientes ''
+      carregarFuncionarios ''
+      render 'contums/new'
+    end
+
   end
 
   def destroy
@@ -134,6 +121,22 @@ class ContumsController < ApplicationController
     @contasAtrasadas = contas.listaContasAtrasadas
     @contasPagas = contas.listaContasPagas
     @clientes = Cliente.listaClientes
+  end
+
+  def carregarClientes pesquisa
+    if pesquisa && pesquisa != ''
+      @clientes = Cliente.pesquisa(pesquisa)
+    else
+      @clientes = Cliente.listaClientes
+    end
+  end
+
+  def carregarFuncionarios pesquisa
+    if pesquisa && pesquisa != ''
+      @funcionarios = Funcionario.pesquisa(pesquisa)
+    else
+      @funcionarios = Funcionario.listaFuncionarios
+    end
   end
 
 end
