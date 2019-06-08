@@ -11,6 +11,10 @@ class ContumsController < ApplicationController
   end
 
   def index
+    if @@telaAbertaConta == 1
+      @@resultadoPositivoFicheiro = ""
+    end
+    @@telaAbertaConta = 0;
 
     if(params[:pesquisa] &&  params[:pesquisa] != '')
       @clientes = Cliente.pesquisa(params[:pesquisa])
@@ -25,6 +29,10 @@ class ContumsController < ApplicationController
   end
 
   def new
+    if @@telaAbertaConta == 0
+      @@resultadoPositivoFicheiro = ""
+    end
+    @@telaAbertaConta = 1
     if params[:pesquisaCliente] || params[:pesquisaFuncionario] || params[:pesquisaConta]
       carregarClientes params[:pesquisaCliente]
       carregarFuncionarios params[:pesquisaFuncionario]
@@ -71,7 +79,18 @@ class ContumsController < ApplicationController
     @cont.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
                  comprador: @conta.comprador, parentesco: @conta.parentesco)
     carregarContas @cont.cliente
-    render 'contums/index'
+
+    @@resultadoPositivoFicheiro = "Conta Atualizada"
+    if @@telaAbertaConta == 0
+      carregarContas(@cont.cliente)
+      render 'contums/index'
+    elsif @@telaAbertaConta == 1
+      @contum = Contum.new
+      carregarFuncionarios ''
+      carregarClientes ''
+      carregarContasData ''
+      render 'contums/new'
+    end
   end
 
   def create
@@ -111,13 +130,25 @@ class ContumsController < ApplicationController
 
   def destroy
 
-    @conta = Contum.find(params[:id])
-    carregarContas(@conta.cliente)
-    @conta.destroy
-    render 'contums/index'
+    @contum = Contum.find(params[:id])
+    @contum.destroy
+    @@resultadoPositivoFicheiro = "Conta Deletada"
+    if @@telaAbertaConta == 0
+      carregarContas(@contum.cliente)
+      render 'contums/index'
+    elsif @@telaAbertaConta == 1
+      @contum = Contum.new
+      carregarFuncionarios ''
+      carregarClientes ''
+      carregarContasData ''
+      render 'contums/new'
+    end
   end
 
   private
+  # 0 = index, 1 = new
+  @@telaAbertaConta = -1
+
   def conta_params
     params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
   end

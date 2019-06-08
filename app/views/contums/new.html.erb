@@ -134,9 +134,9 @@
           <div>
             <select class="selection_formulario_ficheiro" name="contum[status]">
               <%devendo = paga = atrasada = ''
-                if @contum.status == 'Devendo'
+                if @contum.status == nil || @contum.status == 'Devendo'
                   devendo = 'selected'
-                elsif @contum && @contum.status == 'Paga'
+                elsif @contum.status == 'Paga'
                   paga = 'selected'
                 else
                   atrasada = 'selected'
