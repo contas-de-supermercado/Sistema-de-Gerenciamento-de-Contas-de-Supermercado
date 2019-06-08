@@ -25,12 +25,14 @@ class ContumsController < ApplicationController
   end
 
   def new
-    if params[:pesquisaCliente] || params[:pesquisaFuncionario]
+    if params[:pesquisaCliente] || params[:pesquisaFuncionario] || params[:pesquisaConta]
       carregarClientes params[:pesquisaCliente]
       carregarFuncionarios params[:pesquisaFuncionario]
+      carregarContasData params[:pesquisaConta]
     else
       @clientes = Cliente.listaClientes
       @funcionarios = Funcionario.listaFuncionarios
+      @contas = Contum.all
     end
 
     @contum = Contum.new
@@ -127,6 +129,16 @@ class ContumsController < ApplicationController
     @contasAtrasadas = contas.listaContasAtrasadas
     @contasPagas = contas.listaContasPagas
     @clientes = Cliente.listaClientes
+  end
+
+  def carregarContasData data
+    if data && data != ''
+      @contas = Contum.listaContasData data
+    elsif !data
+      @contas = nil;
+    else
+      @contas = Contum.all
+    end
   end
 
   def carregarClientes pesquisa

@@ -11,5 +11,5 @@ class Contum < ApplicationRecord
   scope :listaContasDevendo, -> { where("status like ?", "%#{"devendo"}%") }
   scope :listaContasPagas, -> { where("status like ?", "%#{"paga"}%") }
   scope :listaContasAtrasadas, -> { where("status like ?", "%#{"atrasada"}%") }
-
+  scope :listaContasData, -> (query) { where("dataCompra like ?", "%#{query}%") }
 end
