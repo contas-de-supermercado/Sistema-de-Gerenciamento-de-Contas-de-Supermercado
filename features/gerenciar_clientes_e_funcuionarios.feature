@@ -1,7 +1,7 @@
 Feature: Gerenciar clientes e funcionarios
   As a Usuario do sistema de Gerenciamento financeiro de supermercado
   I want to adicionar, remover, ver e editar um cliente e adicionar, remover, ver e editar um funcionario
-  So that Para que eu nao tenha que fazer isso manualmente
+  So that eu nao tenha que fazer isso manualmente
 
   Scenario: Adicionar um cliente
     Given Eu abro a pagina inicial de clientes

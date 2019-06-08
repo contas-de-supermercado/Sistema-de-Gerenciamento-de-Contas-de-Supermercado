@@ -7,10 +7,11 @@
   <div id="menucontainer">
     <div id="menu">
       <ul>
-        <li><%= link_to 'Inicio', ficheiros_path %></li>
+        <li><%= link_to 'Inicio', new_contum_path %></li>
         <li><%= link_to 'Cliente', clientes_path%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
-        <li><%= link_to 'Contas', contas_path, class:"current" %></li>
+        <li><%= link_to 'Contas', contums_path, class:"current" %></li>
+
       </ul>
     </div>
   </div>
@@ -23,17 +24,17 @@
       </span>
 
       <% # formulario de cadastramento ..................................... %>
-      <%= form_with(model: @conta, local: true, url:conta_path, class:"formulario") do |form|  %>
+      <%= form_with model: @contum, scope: :contum, local: true, class:"formulario" do |form| %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
-          <span class="label-elemento_formulario" name="cliente">Cpf Cliente</span><br>
-          <%= form.text_field :cliente, class:"input100", placeholder:"Cpf do cliente" %>
+          <span class="label-elemento_formulario" name="cliente">Cpf do(a) Cliente <%= Cliente.pesquisaCpf(@contum.cliente)[0].nome %></span><br>
+          <%= form.text_field :cliente, readonly:"true", id:"cliente", class:"input100", placeholder:"Cpf do cliente" %>
           <span class="focus-input100"></span>
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
-          <span class="label-elemento_formulario" name="funcionario">Cpf Funcionário</span><br>
-          <%= form.text_field :funcionario, class:"input100", placeholder:"Cpf do funcionário" %>
+          <span class="label-elemento_formulario" name="funcionario">Cpf do(a) Funcionário(a) <%= Funcionario.pesquisaCpf(@contum.funcionario)[0].nome %></span><br>
+          <%= form.text_field :funcionario, readonly:"true", id:"funcionario", class:"input100", placeholder:"Cpf do funcionário" %>
           <span class="focus-input100"></span>
         </div>
 
@@ -52,11 +53,11 @@
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <span class="label-elemento_formulario">Status</span>
           <div>
-            <select class="selection_formulario_ficheiro" name="conta[status]">
+            <select class="selection_formulario_ficheiro" name="contum[status]">
               <%devendo = paga = atrasada = ''
-                if @conta.status == 'Devendo'
+                if @contum.status == 'Devendo'
                   devendo = 'selected'
-                elsif @conta.status == 'Paga'
+                elsif @contum && @contum.status == 'Paga'
                   paga = 'selected'
                 else
                   atrasada = 'selected'
@@ -78,9 +79,16 @@
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <span class="label-elemento_formulario" name="parentesco">Grau de Parentesco do Comprador</span><br>
-          <%= form.text_field :parentesco, class:"input100", placeholder:"0.0" %>
+          <%= form.text_field :parentesco, class:"input100", placeholder:"Grau de parentesco" %>
           <span class="focus-input100"></span>
         </div>
+
+        <% if(ContumsController.getResultadoPositivoFicheiro != "") %>
+    <span id="resultadoPositivo" class="status_processo">
+            <%= ContumsController.getResultadoPositivoFicheiro %>
+          </span>
+          <%ContumsController.setResultadoPositivoFicheiro("") %>
+        <% end %>
 
         <div class="div_butao_formulario">
           <button class="botao_formulario">
@@ -90,7 +98,6 @@
 						</span>
           </button>
         </div>
-
       <% end %>
 
     </div>

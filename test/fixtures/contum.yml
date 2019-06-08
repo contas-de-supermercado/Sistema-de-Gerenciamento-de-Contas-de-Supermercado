@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+
   valor: 
   juros: 
   status: MyString
@@ -8,6 +9,9 @@ one:
   dataPagamento: MyString
   funcionario: 1
   cliente: 1
+  comprador: MyString
+  parentesco: MyString
+
 
 two:
   valor: 
@@ -17,3 +21,5 @@ two:
   dataPagamento: MyString
   funcionario: 1
   cliente: 1
+  comprador: MyString
+  parentesco: MyString

@@ -1,7 +1,7 @@
 Feature: Gerenciamento de contas
   As a Usuário do sistema de Gerenciamento financeiro de supermercado
   I want to adicionar, remover, ver e editar uma conta
-  So that Para que eu nao tenha que fazer isso manualmente
+  So that eu nao tenha que fazer isso manualmente
 
   #Scenario: Criar conta
     #Given Eu abro a pagina inicial de contas

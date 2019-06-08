@@ -1,2 +1,0 @@
-class Ficheiro < ApplicationRecord
-end

@@ -7,10 +7,10 @@
   <div id="menucontainer">
     <div id="menu">
       <ul>
-        <li><%= link_to 'Inicio', ficheiros_path %></li>
+        <li><%= link_to 'Inicio', new_contum_path %></li>
         <li><%= link_to 'Cliente', clientes_path%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
-        <li><%= link_to 'Contas', contas_path, class:"current" %></li>
+        <li><%= link_to 'Contas', contums_path, class:"current" %></li>
       </ul>
     </div>
   </div>
@@ -23,7 +23,7 @@
       </span>
 
       <% # formulario de pesquisa ......................................... %>
-      <%= form_tag(contas_path, method: :get, class:"formulario formulario_pesquisa") do %>
+      <%= form_tag(contums_path, method: :get, class:"formulario formulario_pesquisa") do %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
@@ -57,7 +57,7 @@
               <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
               <div class="left col-3" style="width: 20%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Contas', conta_path(cliente), class:"botao_tabela" %>
+                <%= link_to 'Contas', contum_path(cliente), class:"botao_tabela" %>
               </div>
             </div>
           <% end %>
@@ -89,10 +89,10 @@
               %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_contum_path(conta), class:"botao_tabela" %>
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', conta_path(conta), class:"botao_tabela",
+                <%= link_to 'Deletar', contum_path(conta), class:"botao_tabela",
                             method: :delete,
                             data: { confirm: 'Tem certeza que deseja excluir essa conta?' } %>
               </div>
@@ -126,10 +126,10 @@
               %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_contum_path(conta), class:"botao_tabela" %>
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', conta_path(conta), class:"botao_tabela",
+                <%= link_to 'Deletar', contum_path(conta), class:"botao_tabela",
                             method: :delete,
                             data: { confirm: 'Tem certeza que deseja excluir essa conta?' } %>
               </div>
@@ -163,10 +163,10 @@
               %>
               <div class="left col-3 colunaCorpoComum colunaCpf"> <%= conta.valor %> </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_conta_path(conta), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_contum_path(conta), class:"botao_tabela" %>
               </div>
               <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', conta_path(conta), class:"botao_tabela",
+                <%= link_to 'Deletar', contum_path(conta), class:"botao_tabela",
                             method: :delete,
                             data: { confirm: 'Tem certeza que deseja excluir essa conta?' } %>
               </div>
