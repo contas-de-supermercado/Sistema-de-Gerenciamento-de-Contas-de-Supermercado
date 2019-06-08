@@ -23,7 +23,7 @@
       </span>
 
       <% # formulario de pesquisa de cliente ......................................... %>
-      <%= form_tag(new_contum_path, method: :get, class:"formulario formulario_pesquisa") do %>
+      <%= form_tag(new_contum_path, method: :get, remote:true, class:"formulario formulario_pesquisa") do %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario", style="width: 460px;">
           <%= text_field_tag :pesquisaCliente, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
@@ -42,7 +42,7 @@
       <% end %>
 
       <% # formulario de pesquisa de funcionario......................................... %>
-      <%= form_tag(new_contum_path, method: :get, class:"formulario formulario_pesquisa") do %>
+      <%= form_tag(new_contum_path, method: :get, remote:true, class:"formulario formulario_pesquisa") do %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario" style="width: 460px; margin-left: 51.6%; margin-top: -85px;">
           <%= text_field_tag :pesquisaFuncionario, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
@@ -69,7 +69,7 @@
           <div class="left colunaTituloComum colunaCpfFicheiro"> Cpf </div>
         </div>
 
-        <div style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
+        <div id="tabelaCliente" style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
           <% @clientes.each do |cliente| %>
             <button onclick="selecionarCpfCliente(<%=cliente.cpf %>);">
               <div class="menuTabela" style="width: 525px; background: #eeeeee;; margin-left: -6px;">
@@ -90,7 +90,7 @@
           <div class="left col-3 colunaTituloComum colunaCpfFicheiro"> Cpf </div>
         </div>
 
-        <div style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
+        <div id="tabelaFuncionario" style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
           <% @funcionarios.each do |funcionario| %>
             <button onclick="selecionarCpfFuncionario(<%=funcionario.cpf %>);">
               <div class="menuTabela col-10 offset-1 row pointer" style="width: 525px; background: #eeeeee; margin-left: -6px;">

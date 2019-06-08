@@ -1,4 +1,5 @@
 class ContumsController < ApplicationController
+  respond_to :js, :html
 
   @@resultadoPositivoFicheiro = ""
 
@@ -24,8 +25,13 @@ class ContumsController < ApplicationController
   end
 
   def new
-    carregarClientes params[:pesquisaCliente]
-    carregarFuncionarios params[:pesquisaFuncionario]
+    if params[:pesquisaCliente] || params[:pesquisaFuncionario]
+      carregarClientes params[:pesquisaCliente]
+      carregarFuncionarios params[:pesquisaFuncionario]
+    else
+      @clientes = Cliente.listaClientes
+      @funcionarios = Funcionario.listaFuncionarios
+    end
 
     @contum = Contum.new
   end
@@ -125,7 +131,9 @@ class ContumsController < ApplicationController
 
   def carregarClientes pesquisa
     if pesquisa && pesquisa != ''
-      @clientes = Cliente.pesquisa(pesquisa)
+      @clientes = Cliente.pesquisa(pesquisa);
+    elsif !pesquisa
+      @clientes = nil
     else
       @clientes = Cliente.listaClientes
     end
@@ -134,6 +142,8 @@ class ContumsController < ApplicationController
   def carregarFuncionarios pesquisa
     if pesquisa && pesquisa != ''
       @funcionarios = Funcionario.pesquisa(pesquisa)
+    elsif !pesquisa
+      @funcionarios = nil
     else
       @funcionarios = Funcionario.listaFuncionarios
     end

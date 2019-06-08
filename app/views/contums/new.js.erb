@@ -1,0 +1,35 @@
+
+<%if(@clientes != nil) %>
+  var tabelaCliente = document.getElementById('tabelaCliente');
+  tabelaCliente.innerHTML = '';
+
+  <% @clientes.each do |cliente| %>
+
+    tabelaCliente.innerHTML = tabelaCliente.innerHTML +
+        "<button onclick='selecionarCpfCliente(<%=cliente.cpf %>);'>" +
+        "<div class='menuTabela' style='width: 525px; background: #eeeeee; margin-left: -6px;'>" +
+        "<div class='left colunaCorpoComum colunaIdFicheiro'> <%= cliente.id %>  </div>" +
+        "<div class='left colunaCorpoComum colunaNomeFicheiro'> <%= cliente.nome %> </div>" +
+        "<div class='left colunaCorpoComum colunaCpfFicheiro'>  <%= cliente.cpf %> </div> </div> </button>";
+
+  <% end %>
+<%end %>
+
+<%if(@funcionarios != nil) %>
+  var tabelaFuncionario = document.getElementById('tabelaFuncionario');
+  tabelaFuncionario.innerHTML = '';
+
+  <% @funcionarios.each do |funcionario| %>
+
+  tabelaFuncionario.innerHTML = tabelaFuncionario.innerHTML +
+      "<button onclick='selecionarCpfFuncionario(<%=funcionario.cpf %>);'>" +
+      "<div class='menuTabela' style='width: 525px; background: #eeeeee; margin-left: -6px;'>" +
+      "<div class='left colunaCorpoComum colunaIdFicheiro'> <%= funcionario.id %>  </div>" +
+      "<div class='left colunaCorpoComum colunaNomeFicheiro'> <%= funcionario.nome %> </div>" +
+      "<div class='left colunaCorpoComum colunaCpfFicheiro'>  <%= funcionario.cpf %> </div> </div> </button>";
+
+  <% end %>
+<% end %>
+
+
+
