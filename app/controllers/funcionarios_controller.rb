@@ -43,7 +43,8 @@ class FuncionariosController < ApplicationController
   def create
     @funcionario = Funcionario.new(funcionario_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
-    @funcionario.tipo = 1;
+    @funcionario.tipo = 1
+    @funcionario.inativo = 0
 
     if @funcionario.save
       @@resultadoPositivoFuncionario = "Funcionário salvo"
@@ -57,7 +58,7 @@ class FuncionariosController < ApplicationController
 
   def destroy
     @funcionario = Funcionario.find(params[:id])
-    @funcionario.destroy
+    @funcionario.update(inativo: 1)
     @@resultadoPositivoFuncionario = "Funcionário Deletado";
     redirect_to funcionarios_path
   end
