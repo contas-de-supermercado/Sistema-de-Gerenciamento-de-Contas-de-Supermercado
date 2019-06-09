@@ -1,4 +1,5 @@
 class FuncionariosController < ApplicationController
+  respond_to :js, :html
 
   @@resultadoPositivoFuncionario= ""
 

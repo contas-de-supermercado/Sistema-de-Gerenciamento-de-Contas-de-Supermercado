@@ -1,0 +1,18 @@
+
+var tabelaFuncionario = document.getElementById('tabelaFuncionario');
+tabelaFuncionario.innerHTML = '';
+
+<% @funcionarios.each do |funcionario| %>
+
+tabelaFuncionario.innerHTML = tabelaFuncionario.innerHTML +
+    "<div class='menuTabela' style='width: 1140px; background: #ffffff;'>" +
+    "<div class='left col-1 colunaCorpoComum colunaId'> <%= funcionario.id %> </div>" +
+    "<div class='left col-1 colunaCorpoComum colunaNome'> <%= funcionario.nome %> </div>" +
+    "<div class='left col-5 colunaCorpoComum colunaCpf'> <%= funcionario.cpf %> </div>" +
+    "<div class='left col-3' style='width: 10%; font-size: 18px; margin-top: -20px;'>" +
+    "<a href=<%=edit_funcionario_path(funcionario)%> class='botao_tabela' id=<%="d-#{'edit-'+funcionario.cpf}"%> >Editar</a>" +
+    "</div><div class='left col-3' style='width: 10%; font-size: 18px; margin-top: -20px;'>" +
+    "<a class='botao_tabela' id=<%="d-#{'delete-'+funcionario.cpf}"%> data-confirm='Tem certeza que deseja excluir esse Cliente?' rel='nofollow' data-method='delete' href=<%= funcionario_path(funcionario) %>>Deletar</a>" +
+    "</div></div>";
+
+<% end %>
