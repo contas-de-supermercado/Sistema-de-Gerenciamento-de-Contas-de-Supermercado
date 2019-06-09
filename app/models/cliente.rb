@@ -22,7 +22,7 @@ class Cliente < Pessoa
     resultado
   end
 
-  scope :listaClientes, -> { where("tipo like ?", "%#{0}%") }
+  scope :listaClientes, -> { Pessoa.all }
   scope :pesquisaId, ->(query) { where("id like ?", "%#{query}%") }
   scope :pesquisaCpf, ->(query) { where("cpf like ?", "%#{query}%") }
   scope :pesquisaNome, ->(query) { where("nome like ?", "%#{query}%") }
