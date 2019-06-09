@@ -115,7 +115,7 @@
       <% end %>
 
       <% # formulario de pesquisa ......................................... %>
-      <%= form_tag(clientes_path, method: :get, class:"formulario formulario_pesquisa") do %>
+      <%= form_tag(clientes_path, method: :get, remote:true, class:"formulario formulario_pesquisa") do %>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
@@ -143,7 +143,7 @@
           <div class="left col-3 colunaTituloComum colunaId"></div>
         </div>
 
-        <div style="height: 500px; overflow-y:auto; overflow-x:hidden;">
+        <div id="tabelaCliente" style="height: 500px; overflow-y:auto; overflow-x:hidden;">
           <% @clientes.each do |cliente| %>
             <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
               <div class="left col-1 colunaCorpoComum colunaId"> <%= cliente.id %> </div>

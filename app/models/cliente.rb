@@ -1,10 +1,9 @@
 class Cliente < Pessoa
 
   def self.pesquisa query
-    clientes = listaClientes;
-    pesquisaIds = clientes.pesquisaId(query)
-    pesquisaCpfs = clientes.pesquisaCpf(query)
-    pesquisaNomes = clientes.pesquisaNome(query)
+    pesquisaIds = Cliente.pesquisaId(query)
+    pesquisaCpfs = Cliente.pesquisaCpf(query)
+    pesquisaNomes = Cliente.pesquisaNome(query)
     resultado = []
     pesquisaIds.each do |cliente|
       resultado << cliente

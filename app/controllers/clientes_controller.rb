@@ -1,4 +1,5 @@
 class ClientesController < ApplicationController
+  respond_to :js, :html
 
   @@resultadoPositivoCliente = ""
 
