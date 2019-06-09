@@ -99,7 +99,11 @@
                 end
               %>
               <div class="left col-3 colunaCorpoComum colunaValor"> <%= @contasDevendo[cont].valor %> </div>
-              <div class="left col-3 colunaCorpoComum colunaData"> <%= @contasDevendo[cont].dataCompra %> </div>
+              <%timer = @contasDevendo[cont].dataCompra
+                data = timer.split(' ')[0].split('-')
+                data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+              %>
+              <div class="left col-3 colunaCorpoComum colunaData"> <%= data %> </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_contum_path(@contasDevendo[cont]), class:"botao_tabela" %>
               </div>
@@ -142,7 +146,11 @@
                 end
               %>
               <div class="left col-3 colunaCorpoComum colunaValor"> <%= @contasAtrasadas[cont].valor %> </div>
-              <div class="left col-3 colunaCorpoComum colunaData"> <%= @contasAtrasadas[cont].dataCompra %> </div>
+              <%timer = @contasAtrasadas[cont].dataCompra
+                data = timer.split(' ')[0].split('-')
+                data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+              %>
+              <div class="left col-3 colunaCorpoComum colunaData"> <%= data %> </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_contum_path(@contasAtrasadas[cont]), class:"botao_tabela" %>
               </div>
@@ -185,7 +193,11 @@
                 end
               %>
               <div class="left col-3 colunaCorpoComum colunaValor"> <%= @contasPagas[cont].valor %> </div>
-              <div class="left col-3 colunaCorpoComum colunaData"> <%= @contasPagas[cont].dataPagamento %> </div>
+              <%timer = @contasPagas[cont].dataPagamento
+                data = timer.split(' ')[0].split('-')
+                data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+              %>
+              <div class="left col-3 colunaCorpoComum colunaData"> <%= data %> </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Editar', edit_contum_path(@contasPagas[cont]), class:"botao_tabela" %>
               </div>

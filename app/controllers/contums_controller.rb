@@ -62,7 +62,7 @@ class ContumsController < ApplicationController
     @conta = Contum.new(conta_params)
 
     if(@conta.status == "Paga")
-      if(@conta.dataPagamento == '')
+      if(!@conta.dataPagamento || @conta.dataPagamento == '')
         time = Time.now
         @conta.dataPagamento = time;
       end
@@ -164,6 +164,7 @@ class ContumsController < ApplicationController
 
   def carregarContasData data
     if data && data != ''
+      data = data.split('/')[2] + '-' + data.split('/')[1] + '-' + data.split('/')[0];
       @contas = Contum.listaContasData data
     elsif !data
       @contas = nil;
