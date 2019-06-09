@@ -12,6 +12,7 @@ class CreatePessoas < ActiveRecord::Migration[5.1]
       t.string :numero
       t.string :cargo
       t.integer :tipo
+      t.integer :inativo
 
       t.timestamps
     end

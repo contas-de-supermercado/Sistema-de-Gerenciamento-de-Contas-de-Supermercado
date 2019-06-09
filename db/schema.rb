@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20190528053818) do
     t.string "numero"
     t.string "cargo"
     t.integer "tipo"
+    t.integer "inativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
