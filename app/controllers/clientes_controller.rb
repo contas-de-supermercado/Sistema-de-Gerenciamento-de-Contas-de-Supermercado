@@ -43,7 +43,7 @@ class ClientesController < ApplicationController
     @cliente = Cliente.new(cliente_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @cliente.tipo = 0
-
+    @cliente.inativo = 0
 
     if @cliente.save
       @@resultadoPositivoCliente = "Cliente Salvo"
@@ -65,7 +65,7 @@ class ClientesController < ApplicationController
 
   def destroy
     @cliente = Cliente.find(params[:id])
-    @cliente.destroy
+    @cliente.update(inativo: 1)
     @@resultadoPositivoCliente = "Cliente Deletado";
     redirect_to clientes_path
   end
