@@ -43,7 +43,7 @@ tabelaContas.innerHTML = tabelaContas.innerHTML +
     "<div class='menuTabela' style='width: 1140px; background: #ffffff;'>" +
     "<div class='left col-1 colunaCorpoComum colunaIdConta'> <%= @contas[cont].id %> </div>" +
     "<div class='left col-1 colunaCorpoComum colunaCliente'> <%= Cliente.pesquisaId(@contas[cont].cliente)[0].nome %> </div>" +
-    "<div class='left col-5 colunaCorpoComum colunaDescricao'> <%=  %> </div>" +
+    "<div class='left col-5 colunaCorpoComum colunaDescricao'> <%= @contas[cont].descricao %> </div>" +
     "<div class='left col-3 colunaCorpoComum colunaValor'> <%= @contas[cont].valor %> </div>" +
     "<div class='left col-3 colunaCorpoComum colunaData'> <%= @contas[cont].dataCompra %> </div>" +
     "<div class='left col-3 colunaBotoes' style='font-size: 18px; margin-top: -20px;'>" +

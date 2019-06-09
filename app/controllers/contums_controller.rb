@@ -77,7 +77,7 @@ class ContumsController < ApplicationController
 
     @cont = Contum.find(params[:id])
     @cont.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
-                 comprador: @conta.comprador, parentesco: @conta.parentesco)
+                 descricao: @conta.descricao, comprador: @conta.comprador, parentesco: @conta.parentesco)
     carregarContas @cont.cliente
 
     @@resultadoPositivoFicheiro = "Conta Atualizada"
@@ -150,7 +150,7 @@ class ContumsController < ApplicationController
   @@telaAbertaConta = -1
 
   def conta_params
-    params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
+    params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :descricao, :comprador, :parentesco)
   end
 
   def carregarContas id

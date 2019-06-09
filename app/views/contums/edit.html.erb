@@ -72,6 +72,12 @@
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
+          <%= form.label :descrição, class:"label-elemento_formulario" %><br>
+          <%= form.text_field :descricao, class:"input100", placeholder:"Descrição" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= form.label :comprador, class:"label-elemento_formulario" %><br>
           <%= form.text_field :comprador, class:"input100", placeholder:"Quem está comprando?" %>
           <span class="focus-input100"></span>
