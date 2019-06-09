@@ -58,7 +58,7 @@ class FuncionariosController < ApplicationController
 
   def destroy
     @funcionario = Funcionario.find(params[:id])
-    @funcionario.update(inativo: 1)
+    @funcionario.update(tipo: 0)
     @@resultadoPositivoFuncionario = "Funcionário Deletado";
     redirect_to funcionarios_path
   end
