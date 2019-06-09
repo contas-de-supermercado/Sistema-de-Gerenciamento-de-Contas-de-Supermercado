@@ -81,9 +81,16 @@
           <span class="focus-input100"></span>
         </div>
 
-        <% if(ClientesController.getResultadoPositivoCliente != "") %>
-          <span id="resultadoPositivo" class="status_processo">
-            <%= ClientesController.getResultadoPositivoCliente %>
+        <% if(ClientesController.getResultadoPositivoCliente != "")
+             valor = ""
+             resultado = ClientesController.getResultadoPositivoCliente
+          if resultado.split('-')[0] == 'erro'
+            valor = "color: red"
+            resultado = resultado.split('-')[1]
+          end
+        %>
+          <span style="<%= valor %>" id="resultadoPositivo" class="status_processo">
+            <%= resultado %>
           </span>
           <%ClientesController.setResultadoPositivoCliente("") %>
         <% end %>

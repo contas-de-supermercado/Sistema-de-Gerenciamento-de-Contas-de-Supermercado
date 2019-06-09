@@ -65,8 +65,13 @@ class ClientesController < ApplicationController
 
   def destroy
     @cliente = Cliente.find(params[:id])
-    @cliente.update(inativo: 1)
-    @@resultadoPositivoCliente = "Cliente Deletado";
+    if !verificar_contas_cliente @cliente.id
+      @cliente.update(inativo: 1)
+      @@resultadoPositivoCliente = "Cliente Deletado";
+    else
+      @@resultadoPositivoCliente = "erro-O cliente não foi deletado pois ele está devendo contas";
+    end
+
     redirect_to clientes_path
   end
 
@@ -81,5 +86,16 @@ class ClientesController < ApplicationController
     else
       @clientes = Cliente.listaClientes
     end
+  end
+
+  def verificar_contas_cliente id
+    contas = Contum.listaContasCliente(id)
+    contasDevendo = contas.listaContasDevendo
+    contasAtrasadas = contas.listaContasAtrasadas
+    resultado = false
+    if contasDevendo.count > 0 || contasAtrasadas.count > 0
+      resultado = true
+    end
+    resultado
   end
 end
