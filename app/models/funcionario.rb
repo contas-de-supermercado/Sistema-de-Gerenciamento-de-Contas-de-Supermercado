@@ -23,7 +23,14 @@ class Funcionario < Pessoa
     resultado
   end
 
-  scope :listaFuncionarios, -> { where("tipo like ?", "%#{1}%") }
+  def self.listaFuncionarios
+    funcionarios = listaFuncionariosAtivo
+    funcionarios = funcionarios.listaFuncionariosAux
+    funcionarios
+  end
+
+  scope :listaFuncionariosAux, -> { where("tipo like ?", "%#{1}%") }
+  scope :listaFuncionariosAtivo, -> { where("inativo like ?", "%#{0}%") }
   scope :pesquisaId, ->(query) { where("id like ?", "%#{query}%") }
   scope :pesquisaCpf, ->(query) { where("cpf like ?", "%#{query}%") }
   scope :pesquisaNome, ->(query) { where("nome like ?", "%#{query}%") }

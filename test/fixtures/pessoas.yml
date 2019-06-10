@@ -12,6 +12,7 @@ one:
   numero: MyString
   cargo: MyString
   tipo: 1
+  inativo: 0
 
 two:
   nome: MyString
@@ -25,3 +26,4 @@ two:
   numero: MyString
   cargo: MyString
   tipo: 1
+  inativo: 0

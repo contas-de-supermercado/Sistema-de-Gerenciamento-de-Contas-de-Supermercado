@@ -11,6 +11,10 @@ class ContumsController < ApplicationController
   end
 
   def index
+    if @@telaAbertaConta == 1
+      @@resultadoPositivoFicheiro = ""
+    end
+    @@telaAbertaConta = 0;
 
     if(params[:pesquisa] &&  params[:pesquisa] != '')
       @clientes = Cliente.pesquisa(params[:pesquisa])
@@ -25,12 +29,18 @@ class ContumsController < ApplicationController
   end
 
   def new
-    if params[:pesquisaCliente] || params[:pesquisaFuncionario]
+    if @@telaAbertaConta == 0
+      @@resultadoPositivoFicheiro = ""
+    end
+    @@telaAbertaConta = 1
+    if params[:pesquisaCliente] || params[:pesquisaFuncionario] || params[:pesquisaConta]
       carregarClientes params[:pesquisaCliente]
       carregarFuncionarios params[:pesquisaFuncionario]
+      carregarContasData params[:pesquisaConta]
     else
       @clientes = Cliente.listaClientes
       @funcionarios = Funcionario.listaFuncionarios
+      @contas = Contum.all
     end
 
     @contum = Contum.new
@@ -52,7 +62,7 @@ class ContumsController < ApplicationController
     @conta = Contum.new(conta_params)
 
     if(@conta.status == "Paga")
-      if(@conta.dataPagamento == '')
+      if(!@conta.dataPagamento || @conta.dataPagamento == '')
         time = Time.now
         @conta.dataPagamento = time;
       end
@@ -67,9 +77,20 @@ class ContumsController < ApplicationController
 
     @cont = Contum.find(params[:id])
     @cont.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
-                 comprador: @conta.comprador, parentesco: @conta.parentesco)
+                 descricao: @conta.descricao, comprador: @conta.comprador, parentesco: @conta.parentesco)
     carregarContas @cont.cliente
-    render 'contums/index'
+
+    @@resultadoPositivoFicheiro = "Conta Atualizada"
+    if @@telaAbertaConta == 0
+      carregarContas(@cont.cliente)
+      render 'contums/index'
+    elsif @@telaAbertaConta == 1
+      @contum = Contum.new
+      carregarFuncionarios ''
+      carregarClientes ''
+      carregarContasData ''
+      render 'contums/new'
+    end
   end
 
   def create
@@ -109,15 +130,27 @@ class ContumsController < ApplicationController
 
   def destroy
 
-    @conta = Contum.find(params[:id])
-    carregarContas(@conta.cliente)
-    @conta.destroy
-    render 'contums/index'
+    @contum = Contum.find(params[:id])
+    @contum.destroy
+    @@resultadoPositivoFicheiro = "Conta Deletada"
+    if @@telaAbertaConta == 0
+      carregarContas(@contum.cliente)
+      render 'contums/index'
+    elsif @@telaAbertaConta == 1
+      @contum = Contum.new
+      carregarFuncionarios ''
+      carregarClientes ''
+      carregarContasData ''
+      render 'contums/new'
+    end
   end
 
   private
+  # 0 = index, 1 = new
+  @@telaAbertaConta = -1
+
   def conta_params
-    params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :comprador, :parentesco)
+    params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :descricao, :comprador, :parentesco)
   end
 
   def carregarContas id
@@ -127,6 +160,17 @@ class ContumsController < ApplicationController
     @contasAtrasadas = contas.listaContasAtrasadas
     @contasPagas = contas.listaContasPagas
     @clientes = Cliente.listaClientes
+  end
+
+  def carregarContasData data
+    if data && data != ''
+      data = data.split('/')[2] + '-' + data.split('/')[1] + '-' + data.split('/')[0];
+      @contas = Contum.listaContasData data
+    elsif !data
+      @contas = nil;
+    else
+      @contas = Contum.all
+    end
   end
 
   def carregarClientes pesquisa

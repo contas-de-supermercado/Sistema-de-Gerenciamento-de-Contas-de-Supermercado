@@ -9,6 +9,7 @@ one:
   dataPagamento: MyString
   funcionario: 1
   cliente: 1
+  descricao: MyString
   comprador: MyString
   parentesco: MyString
 
@@ -21,5 +22,6 @@ two:
   dataPagamento: MyString
   funcionario: 1
   cliente: 1
+  descricao: MyString
   comprador: MyString
   parentesco: MyString

@@ -75,6 +75,34 @@
     color: #000000;
 }
 
+.colunaIdConta{
+    width: 5%;
+}
+
+.colunaBotoes{
+    width: 6.3%;
+}
+
+.colunaData{
+    width: 20%;
+}
+
+.colunaCliente{
+    width: 15%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.colunaDescricao {
+    width: 20%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.colunaValor{
+    width: 15%;
+}
+
 .colunaId{
     width: 8%;
 }

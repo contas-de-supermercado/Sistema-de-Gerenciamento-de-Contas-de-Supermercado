@@ -1,0 +1,18 @@
+
+var tabelaCliente = document.getElementById('tabelaCliente');
+tabelaCliente.innerHTML = '';
+
+<% @clientes.each do |cliente| %>
+
+tabelaCliente.innerHTML = tabelaCliente.innerHTML +
+    "<div class='menuTabela' style='width: 1140px; background: #ffffff;'>" +
+    "<div class='left col-1 colunaCorpoComum colunaId'> <%= cliente.id %> </div>" +
+    "<div class='left col-1 colunaCorpoComum colunaNome'> <%= cliente.nome %> </div>" +
+    "<div class='left col-5 colunaCorpoComum colunaCpf'> <%= cliente.cpf %> </div>" +
+    "<div class='left col-3' style='width: 10%; font-size: 18px; margin-top: -20px;'>" +
+    "<a href=<%=edit_cliente_path(cliente)%> class='botao_tabela' id=<%="d-#{'edit-'+cliente.cpf}"%> >Editar</a>" +
+    "</div><div class='left col-3' style='width: 10%; font-size: 18px; margin-top: -20px;'>" +
+    "<a class='botao_tabela' id=<%="d-#{'delete-'+cliente.cpf}"%> data-confirm='Tem certeza que deseja excluir esse Cliente?' rel='nofollow' data-method='delete' href=<%= cliente_path(cliente) %>>Deletar</a>" +
+    "</div></div>";
+
+<% end %>
