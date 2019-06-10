@@ -1,2 +1,26 @@
-<h1>Pagamento#index</h1>
-<p>Find me in app/views/pagamento/index.html.erb</p>
+<body>
+<div id="wrap">
+  <div id="masthead">
+    <h1>Sistema Financeiro de Supermecado - Mercado São Caetano</h1>
+    <h2><a href="#">Perfil</a> | <a href="#">Contato</a> </h2>
+  </div>
+  <div id="menucontainer">
+    <div id="menu">
+      <ul>
+        <li><%= link_to 'Registro', new_contum_path %></li>
+        <li><%= link_to 'Pagamento', pagamentos_path, class:"current" %></li>
+        <li><%= link_to 'Contas', contums_path %></li>
+        <li><%= link_to 'Cliente', clientes_path%></li>
+        <li><%= link_to 'Funcionário', funcionarios_path %></li>
+      </ul>
+    </div>
+  </div>
+  <div id="container">
+
+    <div id="content">
+
+    </div>
+  </div>
+  <div id="footer"> Informações Sobre o Mercado </div>
+</div>
+</body>
