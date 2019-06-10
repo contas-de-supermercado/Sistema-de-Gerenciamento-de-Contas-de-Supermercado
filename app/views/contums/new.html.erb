@@ -242,7 +242,7 @@
               <div class="left col-3 colunaCorpoComum colunaValor"> <%= @contas[cont].valor %> </div>
               <%timer = @contas[cont].dataCompra
                 data = timer.split(' ')[0].split('-')
-                data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+                data = data[2].to_s + "/" + data[1].to_s + "/" + data[0].to_s + " " + timer.split(' ')[1].to_s
               %>
               <div class="left col-3 colunaCorpoComum colunaData"> <%= data %> </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
