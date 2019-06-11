@@ -81,10 +81,12 @@ class PagamentosController < ApplicationController
     resultado = nil
     if verificarVazioOuNulo(cpf) || cpf.length != 11 || !verificarNumeroInt(cpf)
       @resultadoPagamento = "erro-Preenchar um cpf válido"
-    elsif verificarVazioOuNulo valorContas || valorContas.to_s == '0' || !verificarNumeroFloat(valorContas)
+    elsif verificarVazioOuNulo(valorContas) || valorContas.to_s == '0'
       @resultadoPagamento = "erro-Nenhuma conta foi selecionada"
-    elsif verificarVazioOuNulo valorCliente || !verificarNumeroFloat(valorCliente)
+    elsif verificarVazioOuNulo(valorCliente)
       @resultadoPagamento = "erro-Preencha o valor dado pelo cliente"
+    elsif !verificarNumeroFloat(valorCliente)
+      @resultadoPagamento = "erro-Preencha um valor dado pelo cliente válido"
     elsif (resultado = Cliente.buscarClientePorCpf cpf) == nil
       @resultadoPagamento = "erro-Esse cliente não existe"
     end
@@ -103,6 +105,9 @@ class PagamentosController < ApplicationController
     resultado = true
     begin
       string = string.to_i
+      if string == 0
+        resultado = false
+      end
     rescue
       resultado = false
     end
@@ -113,6 +118,9 @@ class PagamentosController < ApplicationController
     resultado = true
     begin
       string = string.to_f
+      if string == 0
+        resultado = false
+      end
     rescue
       resultado = false
     end
