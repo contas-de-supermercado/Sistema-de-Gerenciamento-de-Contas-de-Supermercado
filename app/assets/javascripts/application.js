@@ -25,3 +25,96 @@ function selecionarCpfFuncionario(cpf){
     var cpfCliente = document.getElementById('funcionario');
     cpfCliente.value = cpf;
 }
+
+valorContaDevendo = 0;
+
+function setValorContaDevendo(valor) {
+    valorContaDevendo = valor;
+    document.getElementById('contasDevendo').innerHTML = 'Contas Devendo = 0';
+}
+
+function somarContasDevendo(conta, valor) {
+    valorContaDevendo += valor
+    document.getElementById('contasDevendo').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+    document.getElementById('valorContas').value = valorContaDevendo + valorContaAtrasada;
+    contasDevendoSelecionadas(conta, true)
+}
+
+function selecionarContaDevendo(clickedid, valor) {
+    if (document.getElementById(clickedid).checked == true) { // deixar ele true
+        valorContaDevendo += valor;
+        document.getElementById('contasDevendo').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+        contasDevendoSelecionadas(clickedid, true);
+    } else {  // deixar ele falso
+        valorContaDevendo -= valor;
+        document.getElementById('contasDevendo').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+        contasDevendoSelecionadas(clickedid, false);
+    }
+    document.getElementById('valorContas').value = valorContaDevendo + valorContaAtrasada;
+}
+
+valorContaAtrasada = 0;
+
+function setValorContaAtrasada(valor) {
+    valorContaAtrasada = valor;
+    document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = 0';
+}
+
+function somarContasAtrasada(conta, valor) {
+    valorContaAtrasada += valor;
+    document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+    document.getElementById('valorContas').value = valorContaDevendo + valorContaAtrasada;
+    contasAtrasadaSelecionadas(conta, true);
+}
+
+function selecionarContaAtrasada(clickedid, valor) {
+    if (document.getElementById(clickedid).checked == true) { // deixar ele true
+        valorContaAtrasada += valor;
+        document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+        contasAtrasadaSelecionadas(clickedid, true);
+    } else {  // deixar ele falso
+        valorContaAtrasada -= valor;
+        document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+        contasAtrasadaSelecionadas(clickedid, false);
+    }
+    document.getElementById('valorContas').value = valorContaDevendo + valorContaAtrasada;
+}
+
+function contasDevendoSelecionadas(conta, flag) {
+    var ids = document.getElementById('idsContasDevendoSelecionadas');
+    if(flag == true){
+        ids.value += "-" + conta;
+    }
+    else{
+        var resultado = ids.value.split('-');
+        var result = "";
+        for(var i = 0; i < resultado.length; i++){
+            if(resultado[i] != '' && conta.toString() != resultado[i]){
+                result += "-" + resultado[i];
+            }
+        }
+        ids.value = result;
+    }
+}
+
+function contasAtrasadaSelecionadas(conta, flag) {
+    var ids = document.getElementById('idsContasAtrasadaSelecionadas');
+    if(flag == true){
+        ids.value += "-" + conta;
+    }
+    else{
+        var resultado = ids.value.split('-');
+        var result = "";
+        for(var i = 0; i < resultado.length; i++){
+            if(resultado[i] != '' && conta.toString() != resultado[i]){
+                result += "-" + resultado[i];
+            }
+        }
+        ids.value = result;
+    }
+}
+
+function selecionarCpfNomeCliente(nome, cpf) {
+    document.getElementById('cpf').value = cpf;
+    document.getElementById('nome').value = nome;
+}
