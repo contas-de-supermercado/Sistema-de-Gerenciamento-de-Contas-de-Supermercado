@@ -21,6 +21,16 @@ class Cliente < Pessoa
     resultado
   end
 
+  def self.buscarClientePorCpf cpf
+    clientes = listaClientes
+    clientes.each do |cliente|
+      if cliente.cpf == cpf
+        return cliente
+      end
+    end
+    return nil
+  end
+
   scope :listaClientes, -> { where("inativo like ?", "%#{0}%") }
   scope :pesquisaId, ->(query) { where("id like ?", "%#{query}%") }
   scope :pesquisaCpf, ->(query) { where("cpf like ?", "%#{query}%") }
