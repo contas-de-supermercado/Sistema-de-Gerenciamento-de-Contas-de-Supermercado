@@ -123,6 +123,7 @@ class ContumsController < ApplicationController
     else
       carregarClientes ''
       carregarFuncionarios ''
+      carregarContasData ''
       render 'contums/new'
     end
 
