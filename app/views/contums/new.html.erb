@@ -71,7 +71,7 @@
 
         <div id="tabelaCliente" style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
           <% @clientes.each do |cliente| %>
-            <button onclick="selecionarCpfCliente(<%=cliente.cpf %>);">
+            <button onclick="selecionarCpfCliente(<%=cliente.cpf %>)" id="<%="d-#{'cliente-'+cliente.cpf}"%>" >
               <div class="menuTabela" style="width: 525px; background: #eeeeee;; margin-left: -6px;">
                 <div class="left colunaCorpoComum colunaIdFicheiro"> <%= cliente.id %> </div>
                 <div class="left colunaCorpoComum colunaNomeFicheiro"> <%= cliente.nome %> </div>
@@ -92,7 +92,7 @@
 
         <div id="tabelaFuncionario" style="height: 150px; width: 590px; overflow-y:auto; overflow-x:hidden; background: #eeeeee;">
           <% @funcionarios.each do |funcionario| %>
-            <button onclick="selecionarCpfFuncionario(<%=funcionario.cpf %>);">
+            <button onclick="selecionarCpfFuncionario(<%=funcionario.cpf %>)" id="<%="d-#{'funcionario-'+funcionario.cpf}"%>" >
               <div class="menuTabela col-10 offset-1 row pointer" style="width: 525px; background: #eeeeee; margin-left: -6px;">
                 <div class="left col-1 colunaCorpoComum colunaIdFicheiro"> <%= funcionario.id %> </div>
                 <div class="left col-5 colunaCorpoComum colunaNomeFicheiro"> <%= funcionario.nome %> </div>
@@ -107,13 +107,13 @@
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
           <span class="label-elemento_formulario" name="cliente">Cpf Cliente</span><br>
-          <%= form.text_field :cliente, readonly:"true", id:"cliente", class:"input100", placeholder:"Cpf do cliente" %>
+          <%= form.text_field :cliente, id:"cliente", class:"input100", placeholder:"Cpf do cliente" %>
           <span class="focus-input100"></span>
         </div>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario_ficheiro">
           <span class="label-elemento_formulario" name="funcionario">Cpf Funcionário</span><br>
-          <%= form.text_field :funcionario, readonly:"true", id:"funcionario", class:"input100", placeholder:"Cpf do funcionário" %>
+          <%= form.text_field :funcionario, id:"funcionario", class:"input100", placeholder:"Cpf do funcionário" %>
           <span class="focus-input100"></span>
         </div>
 
@@ -232,7 +232,7 @@
         </div>
 
         <div id="tabelaContas" style="width: 1200px; height: 500px; overflow-y:auto; overflow-x:hidden;">
-          <% cont = @contas.count - 1
+          <% cont = @contas.count() - 1
              while(cont >= 0)
           %>
             <div class="menuTabela" style="width: 1140px; background: #ffffff;">
@@ -246,12 +246,12 @@
               %>
               <div class="left col-3 colunaCorpoComum colunaData"> <%= data %> </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_contum_path(@contas[cont]), class:"botao_tabela" %>
+                <%= link_to 'Editar', edit_contum_path(@contas[cont]), class:"botao_tabela", id:"d-#{'edit-'+@contas[cont].id.to_s}"%>
               </div>
               <div class="left col-3 colunaBotoes" style="font-size: 18px; margin-top: -20px;">
                 <%= link_to 'Deletar', contum_path(@contas[cont]), class:"botao_tabela",
                             method: :delete,
-                            data: { confirm: 'Tem certeza que deseja excluir essa conta?' } %>
+                            data: { confirm: 'Tem certeza que deseja excluir essa conta?' }, id:"d-#{'delete-'+@contas[cont].id.to_s}"%>
               </div>
             </div>
           <% cont-= 1
