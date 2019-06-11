@@ -118,7 +118,7 @@ class ContumsController < ApplicationController
     else
       carregarClientes ''
       carregarFuncionarios ''
-      @contas = Contum.all
+      carregarContasData ''
       render 'contums/new'
     end
 

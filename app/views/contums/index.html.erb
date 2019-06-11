@@ -7,10 +7,11 @@
   <div id="menucontainer">
     <div id="menu">
       <ul>
-        <li><%= link_to 'Inicio', new_contum_path %></li>
+        <li><%= link_to 'Registro', new_contum_path %></li>
+        <li><%= link_to 'Pagamento', pagamentos_path %></li>
+        <li><%= link_to 'Contas', contums_path, class:"current" %></li>
         <li><%= link_to 'Cliente', clientes_path%></li>
         <li><%= link_to 'Funcionário', funcionarios_path %></li>
-        <li><%= link_to 'Contas', contums_path, class:"current" %></li>
       </ul>
     </div>
   </div>

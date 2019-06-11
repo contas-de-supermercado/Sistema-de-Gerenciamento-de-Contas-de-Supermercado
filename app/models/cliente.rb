@@ -1,9 +1,10 @@
 class Cliente < Pessoa
 
   def self.pesquisa query
-    pesquisaIds = Cliente.pesquisaId(query)
-    pesquisaCpfs = Cliente.pesquisaCpf(query)
-    pesquisaNomes = Cliente.pesquisaNome(query)
+    clientes = listaClientes
+    pesquisaIds = clientes.pesquisaId(query)
+    pesquisaCpfs = clientes.pesquisaCpf(query)
+    pesquisaNomes = clientes.pesquisaNome(query)
     resultado = []
     pesquisaIds.each do |cliente|
       resultado << cliente
@@ -19,6 +20,16 @@ class Cliente < Pessoa
       end
     end
     resultado
+  end
+
+  def self.buscarClientePorCpf cpf
+    clientes = listaClientes
+    clientes.each do |cliente|
+      if cliente.cpf == cpf
+        return cliente
+      end
+    end
+    return nil
   end
 
   scope :listaClientes, -> { where("inativo like ?", "%#{0}%") }
