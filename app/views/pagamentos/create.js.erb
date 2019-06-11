@@ -1,0 +1,89 @@
+
+<% if(@resultadoPagamento) %>
+
+  <%
+     valorCor = ""
+     valorId = "resultadoPositivo"
+     resultado = @resultadoPagamento
+    if resultado.split('-')[0] == 'erro'
+      valorCor = "color: red"
+      valorId = "resultadoNegativo"
+      resultado = resultado.split('-')[1]
+    elsif resultado.split('-')[0] == 'restante'
+      valorId = "resultadoRestante"
+      valorCor = "color: goldenrod"
+      resultado = resultado.split('-')[1]
+    end
+  %>
+
+  var div = document.getElementById('testeDiv');
+  div.innerHTML = "<span id='<%=valorId%>' style='<%=valorCor%>'><%=resultado%></span>";
+
+  <%if valorId == "resultadoPositivo" or valorId == "resultadoRestante" %>
+    document.getElementById('valorCliente').value = '';
+    document.getElementById('valorContas').value = '';
+
+    setValorContaAtrasada(0);
+    setValorContaDevendo(0);
+    document.getElementById('idsContasAtrasadaSelecionadas').value = '';
+    document.getElementById('idsContasDevendoSelecionadas').value = '';
+
+    var tabelaContas = document.getElementById('tabelaContasAtrasadas');
+    tabelaContas.innerHTML = '';
+    <% cont = @contasAtrasadas.count - 1
+    while(cont >= 0)
+    timer = @contasAtrasadas[cont].dataCompra
+    data = timer.split(' ')[0].split('-')
+    data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+    if @contasAtrasadas[cont].juros > 0
+      @contasAtrasadas[cont].valor += (@contasAtrasadas[cont].juros/100) * @contasAtrasadas[cont].valor;
+    end
+    %>
+
+    somarContasAtrasada( <%=@contasAtrasadas[cont].id %>, <%=@contasAtrasadas[cont].valor%>);
+
+    tabelaContas.innerHTML = tabelaContas.innerHTML +
+        "<div class='menuTabela' style='width: 1140px; background: #ffffff;'>" +
+        "<div class='left col-1 colunaCorpoComum colunaIdConta'> <%= @contasAtrasadas[cont].id %> </div>" +
+        "<div class='left col-1 colunaCorpoComum colunaCliente'> <%= Funcionario.pesquisaId(@contasAtrasadas[cont].funcionario)[0].nome %> </div>" +
+        "<div class='left col-5 colunaCorpoComum colunaDescricao'> <%= @contasAtrasadas[cont].descricao %> </div>" +
+        "<div class='left col-3 colunaCorpoComum colunaValor'> <%= @contasAtrasadas[cont].valor %> </div>" +
+        "<div class='left col-3 colunaCorpoComum colunaData'> <%= data %> </div>" +
+        "<div class='left col-3' style='width: 12.6%; font-size: 18px; margin-top: -43px;'>" +
+        "<input style='zoom: 3;' type='checkbox' id='<%=@contasAtrasadas[cont].id%>' checked='checked' onchange='selecionarContaAtrasada(<%=@contasAtrasadas[cont].id%>, <%=@contasAtrasadas[cont].valor%>)'>" +
+        "</div></div>";
+
+    <% cont -= 1
+    end %>
+
+    tabelaContas = document.getElementById('tabelaContasDevendo');
+    tabelaContas.innerHTML = '';
+    <% cont = @contasDevendo.count - 1
+    while(cont >= 0)
+    timer =  @contasDevendo[cont].dataCompra
+    data = timer.split(' ')[0].split('-')
+    data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+    if @contasDevendo[cont].juros > 0
+      @contasDevendo[cont].valor += (@contasDevendo[cont].juros/100) * @contasDevendo[cont].valor;
+    end
+    %>
+
+    somarContasDevendo( <%=@contasDevendo[cont].id %>, <%=@contasDevendo[cont].valor%>);
+
+    tabelaContas.innerHTML = tabelaContas.innerHTML +
+        "<div class='menuTabela' style='width: 1140px; background: #ffffff;'>" +
+        "<div class='left col-1 colunaCorpoComum colunaIdConta'> <%= @contasDevendo[cont].id %> </div>" +
+        "<div class='left col-1 colunaCorpoComum colunaCliente'> <%= Funcionario.pesquisaId(@contasDevendo[cont].funcionario)[0].nome %> </div>" +
+        "<div class='left col-5 colunaCorpoComum colunaDescricao'> <%= @contasDevendo[cont].descricao %> </div>" +
+        "<div class='left col-3 colunaCorpoComum colunaValor'> <%= @contasDevendo[cont].valor %> </div>" +
+        "<div class='left col-3 colunaCorpoComum colunaData'> <%= data %> </div>" +
+        "<div class='left col-3' style='width: 12.6%; font-size: 18px; margin-top: -43px;'>" +
+        "<input style='zoom: 3;' type='checkbox' id='<%=@contasDevendo[cont].id%>' checked='checked' onchange='selecionarContaAtrasada(<%=@contasDevendo[cont].id%>, <%=@contasDevendo[cont].valor%>)'>" +
+        "</div></div>";
+
+    <% cont -= 1
+    end %>
+
+  <%end %>
+
+<% end %>

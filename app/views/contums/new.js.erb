@@ -40,6 +40,9 @@ while(cont >= 0)
   timer = @contas[cont].dataCompra
   data = timer.split(' ')[0].split('-')
   data = data[2] + '/' + data[1] + '/' + data[0] + ' ' + timer.split(' ')[1]
+  if @contas[cont].juros > 0
+    @contas[cont].valor += (@contas[cont].juros/100) * @contas[cont].valor;
+  end
 %>
 
   tabelaContas.innerHTML = tabelaContas.innerHTML +
