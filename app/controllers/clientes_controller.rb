@@ -13,7 +13,12 @@ class ClientesController < ApplicationController
   def perfil
     if segurancaLogin(0)
       @cliente = Pessoa.getPessoaLogada()
-      carregarContas(@cliente.id)
+      @contasPagas = []
+      @contasDevendo = []
+      @contasAtrasadas = []
+      if @cliente.id != nil
+        carregarContas(@cliente.id)
+      end
     end
   end
 
