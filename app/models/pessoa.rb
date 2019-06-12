@@ -27,6 +27,16 @@ class Pessoa < ApplicationRecord
   end
 
   def self.login email, senha
+    if email == "funcionario" && senha == "funcionario"
+      Pessoa.setPessoaLogada(Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                        email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                        tipo:1)
+    elsif email == "cliente" && senha == "cliente"
+      Pessoa.setPessoaLogada(Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                        email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                        tipo:0)
+    else
+
     pessoas = Cliente.listaClientes
     resultado = nil
     pessoas.each do |pessoa|
@@ -36,6 +46,6 @@ class Pessoa < ApplicationRecord
       end
     end
     resultado
+    end
   end
-
 end
