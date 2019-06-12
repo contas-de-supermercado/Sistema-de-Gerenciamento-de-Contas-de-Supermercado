@@ -81,6 +81,4 @@ end
 When("Eu nao preencho o campo CPF do login") do
   fill_in 'emailLogin', :with => ''
   fill_in 'senhaLogin', :with => "luis12345"
-
 end
-
