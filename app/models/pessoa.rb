@@ -17,4 +17,25 @@ class Pessoa < ApplicationRecord
             length: { in: 9..11 , message: " numero com tamanho incorreto"},
             numericality: {message: "deve ser um numero"}
 
+  @@pessoaLogada = nil
+
+  def self.getPessoaLogada
+    @@pessoaLogada
+  end
+  def self.setPessoaLogada pessoa
+    @@pessoaLogada = pessoa
+  end
+
+  def self.login email, senha
+    pessoas = Cliente.listaClientes
+    resultado = nil
+    pessoas.each do |pessoa|
+      if (pessoa.cpf == email || pessoa.email == email) && (pessoa.senha == senha)
+        resultado = pessoa
+        break
+      end
+    end
+    resultado
+  end
+
 end
