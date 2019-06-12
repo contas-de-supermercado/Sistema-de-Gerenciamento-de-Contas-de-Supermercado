@@ -11,10 +11,10 @@ class ClientesController < ApplicationController
   end
 
   def perfil
-    @contasAtrasadas = []
-    @contasDevendo = []
-    @contasPagas = []
-    @cliente.new
+    if segurancaLogin(0)
+      @cliente = Pessoa.getPessoaLogada()
+      carregarContas(@cliente.id)
+    end
   end
 
   def index
@@ -83,6 +83,22 @@ class ClientesController < ApplicationController
   end
 
   private
+
+  def segurancaLogin pessoa
+    resultado = true
+    if pessoa == 1
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1
+        resultado = false
+        redirect_to logins_path
+      end
+    else
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 0
+        resultado = false
+        redirect_to logins_path
+      end
+    end
+    resultado
+  end
 
   def carregarContas id
     contas = Contum.listaContasCliente(id)

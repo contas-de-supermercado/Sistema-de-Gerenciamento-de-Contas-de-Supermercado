@@ -118,3 +118,47 @@ function selecionarCpfNomeCliente(nome, cpf) {
     document.getElementById('cpf').value = cpf;
     document.getElementById('nome').value = nome;
 }
+
+valorContaPagas = 0;
+
+function somarContasPagasCliente(valor) {
+    valorContaPagas += valor;
+    document.getElementById('contasPagas').innerHTML = 'Contas Pagas = ' + valorContaPagas;
+}
+function selecionarContaPagasCliente(clickedid, valor) {
+    if (document.getElementById(clickedid).checked == true) { // deixar ele true
+        valorContaPagas += valor;
+        document.getElementById('contasPagas').innerHTML = 'Contas Pagas = ' + valorContaPagas;
+    } else {  // deixar ele falso
+        valorContaPagas -= valor;
+        document.getElementById('contasPagas').innerHTML = 'Contas Pagas = ' + valorContaPagas;
+    }
+}
+
+function somarContasDevendoCliente(valor) {
+    valorContaDevendo += valor;
+    document.getElementById('contasDevendoCliente').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+}
+function selecionarContaDevendoCliente(clickedid, valor) {
+    if (document.getElementById(clickedid).checked == true) { // deixar ele true
+        valorContaDevendo += valor;
+        document.getElementById('contasDevendoCliente').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+    } else {  // deixar ele falso
+        valorContaDevendo -= valor;
+        document.getElementById('contasDevendoCliente').innerHTML = 'Contas Devendo = ' + valorContaDevendo;
+    }
+}
+
+function somarContasAtrasadasCliente(valor) {
+    valorContaAtrasada += valor;
+    document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+}
+function selecionarContaAtrasadaCliente(clickedid, valor) {
+    if (document.getElementById(clickedid).checked == true) { // deixar ele true
+        valorContaAtrasada += valor;
+        document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+    } else {  // deixar ele falso
+        valorContaAtrasada -= valor;
+        document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = ' + valorContaAtrasada;
+    }
+}
