@@ -22,7 +22,7 @@ Feature: Gerenciamento de contas
 
   Scenario: Criar conta com valor negativo
     Given Eu abro a pagina inicial de contas
-    When Eu preencho valor da conta com "-20.20"
+    When Eu preencho valor da conta com "-20.20" negativo
     Then Eu vejo uma mensagem de erro na tela
 
   Scenario: Criar conta com valor em branco

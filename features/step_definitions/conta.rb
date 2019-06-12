@@ -122,4 +122,11 @@ When("Eu nao preencho nehnum campo de contas") do
   click_button 'Adicionar'
 end
 
+When("Eu preencho valor da conta com {string} negativo") do |valor|
+  fill_in 'contum[valor]', :with => valor
+  fill_in 'contum[juros]', :with => "3"
+  click_button 'Adicionar'
+end
+
+
 
