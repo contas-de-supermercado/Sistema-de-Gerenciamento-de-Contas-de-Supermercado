@@ -110,12 +110,7 @@ class ContumsController < ApplicationController
       @contum.dataPagamento = time;
     end
 
-    if !@contum.juros
-      @contum.juros = 0
-    end
-    if !@contum.valor
-      @contum.valor = 0
-    end
+
 
     if @contum.save
       @@resultadoPositivoFicheiro = "Conta salva"
