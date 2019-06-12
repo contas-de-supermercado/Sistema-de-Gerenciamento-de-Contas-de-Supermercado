@@ -13,6 +13,7 @@ module Login
 end
 
 World Login
+
 Given("Eu abro a pagina inicial de clientes") do
   logarComoFuncionario()
   visit '/clientes'

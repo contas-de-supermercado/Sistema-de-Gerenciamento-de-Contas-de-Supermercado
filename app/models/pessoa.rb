@@ -36,6 +36,7 @@ class Pessoa < ApplicationRecord
                                         email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
                                         tipo:0)
     else
+
     pessoas = Cliente.listaClientes
     resultado = nil
     pessoas.each do |pessoa|
@@ -47,5 +48,4 @@ class Pessoa < ApplicationRecord
     resultado
     end
   end
-
 end
