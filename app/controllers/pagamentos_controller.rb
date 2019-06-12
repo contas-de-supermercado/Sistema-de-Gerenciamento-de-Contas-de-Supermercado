@@ -2,6 +2,7 @@ class PagamentosController < ApplicationController
   respond_to :js, :html
 
   def index
+    segurancaLogin(1)
     if(params[:pesquisa] &&  params[:pesquisa] != '')
       @clientes = Cliente.pesquisa(params[:pesquisa])
     else
@@ -14,12 +15,14 @@ class PagamentosController < ApplicationController
   end
 
   def show
+    segurancaLogin(1)
     carregarContas(params[:id])
     @cliente = Cliente.find(params[:id])
     render 'pagamentos/index'
   end
 
   def create
+    segurancaLogin(1)
     cpf = params[:cpf]
     valorContas = params[:valorContas]
     valorCliente = params[:valorCliente]
@@ -34,6 +37,19 @@ class PagamentosController < ApplicationController
   end
 
   private
+
+  def segurancaLogin pessoa
+    if pessoa == 1
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1
+        redirect_to logins_path
+      end
+    else
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 0
+        redirect_to logins_path
+      end
+    end
+  end
+
   # Caso quando o valor dado pelo cliente é maior ou igual do que o valor das contas selecionadas
   def pagamentoCaso1 idsContasDevendo, idsContasAtrasada, valorCliente, valorContas
     if valorCliente >= valorContas

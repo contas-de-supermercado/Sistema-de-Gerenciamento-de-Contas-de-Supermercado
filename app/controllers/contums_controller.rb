@@ -11,6 +11,7 @@ class ContumsController < ApplicationController
   end
 
   def index
+    segurancaLogin(1)
     if @@telaAbertaConta == 1
       @@resultadoPositivoFicheiro = ""
     end
@@ -29,6 +30,7 @@ class ContumsController < ApplicationController
   end
 
   def new
+    segurancaLogin(1)
     if @@telaAbertaConta == 0
       @@resultadoPositivoFicheiro = ""
     end
@@ -47,18 +49,20 @@ class ContumsController < ApplicationController
   end
 
   def show
+    segurancaLogin(1)
     carregarContas(params[:id])
     render 'contums/index'
   end
 
   def edit
+    segurancaLogin(1)
     @contum = Contum.find(params[:id])
     @contum.funcionario = Funcionario.find(@contum.funcionario).cpf
     @contum.cliente = Cliente.find(@contum.cliente).cpf
   end
 
   def update
-
+    segurancaLogin(1)
     @conta = Contum.new(conta_params)
 
     if(@conta.status == "Paga")
@@ -94,6 +98,7 @@ class ContumsController < ApplicationController
   end
 
   def create
+    segurancaLogin(1)
     @contum = Contum.new(conta_params)
 
     if @contum.funcionario
@@ -125,7 +130,7 @@ class ContumsController < ApplicationController
   end
 
   def destroy
-
+    segurancaLogin(1)
     @contum = Contum.find(params[:id])
     @contum.destroy
     @@resultadoPositivoFicheiro = "Conta Deletada"
@@ -144,6 +149,18 @@ class ContumsController < ApplicationController
   private
   # 0 = index, 1 = new
   @@telaAbertaConta = -1
+
+  def segurancaLogin pessoa
+    if pessoa == 1
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1
+        redirect_to logins_path
+      end
+    else
+      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 0
+        redirect_to logins_path
+      end
+    end
+  end
 
   def conta_params
     params.require(:contum).permit(:cliente, :funcionario, :valor, :juros, :status, :descricao, :comprador, :parentesco)
