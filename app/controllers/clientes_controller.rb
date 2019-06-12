@@ -18,21 +18,25 @@ class ClientesController < ApplicationController
   end
 
   def index
+    segurancaLogin(1)
     @cliente = Cliente.new
     carregar_tabela(params[:pesquisa])
   end
 
   def new
+    segurancaLogin(1)
     @cliente = Cliente.new
   end
 
   def edit
+    segurancaLogin(1)
     @cliente = Cliente.find(params[:id])
     @clientes = Cliente.listaClientes
     render 'clientes/index'
   end
 
   def update
+    segurancaLogin(1)
     @cliente = Cliente.find(params[:id])
 
 
@@ -47,6 +51,7 @@ class ClientesController < ApplicationController
   end
 
   def create
+    segurancaLogin(1)
     @cliente = Cliente.new(cliente_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @cliente.tipo = 0
@@ -71,6 +76,7 @@ class ClientesController < ApplicationController
   end
 
   def destroy
+    segurancaLogin(1)
     @cliente = Cliente.find(params[:id])
     if !verificar_contas_cliente @cliente.id
       @cliente.update(inativo: 1)
