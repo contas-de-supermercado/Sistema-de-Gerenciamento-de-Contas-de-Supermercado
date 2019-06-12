@@ -10,6 +10,13 @@ class ClientesController < ApplicationController
     @@resultadoPositivoCliente = valor
   end
 
+  def perfil
+    @contasAtrasadas = []
+    @contasDevendo = []
+    @contasPagas = []
+    @cliente.new
+  end
+
   def index
     @cliente = Cliente.new
     carregar_tabela(params[:pesquisa])
@@ -76,6 +83,14 @@ class ClientesController < ApplicationController
   end
 
   private
+
+  def carregarContas id
+    contas = Contum.listaContasCliente(id)
+    @contasDevendo = contas.listaContasDevendo
+    @contasAtrasadas = contas.listaContasAtrasadas
+    @contasPagas = contas.listaContasPagas
+  end
+
   def cliente_params
     params.require(:cliente).permit(:nome, :cpf, :telefone, :celular, :email, :senha, :cidade, :rua, :numero)
   end
