@@ -32,8 +32,12 @@ class FuncionariosController < ApplicationController
   def update
     segurancaLogin(11)
     @funcionario = Funcionario.find(params[:id])
-
-    if @funcionario.update(funcionario_params)
+    funcionarioAux = Funcionario.new(funcionario_params)
+    if funcionarioAux.cargo.downcase == "gerente"
+      @@resultadoPositivoFuncionario = "erro-O sistema já tem um gerente"
+      carregar_tabela ''
+      render 'funcionarios/index'
+    elsif @funcionario.update(funcionario_params)
       @@resultadoPositivoFuncionario = "Funcionário Atualizado";
       redirect_to funcionarios_path
     else
@@ -50,7 +54,11 @@ class FuncionariosController < ApplicationController
     @funcionario.tipo = 1
     @funcionario.inativo = 0
 
-    if @funcionario.save
+    if @funcionario.cargo.downcase == "gerente"
+      @@resultadoPositivoFuncionario = "erro-O sistema já tem um gerente"
+      carregar_tabela ''
+      render 'funcionarios/index'
+    elsif @funcionario.save
       @@resultadoPositivoFuncionario = "Funcionário salvo"
       redirect_to
     else
