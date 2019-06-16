@@ -27,25 +27,34 @@ class Pessoa < ApplicationRecord
   end
 
   def self.login email, senha
-    if email == "funcionario" && senha == "funcionario"
-      Pessoa.setPessoaLogada(Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
-                                        email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
-                                        tipo:1)
-    elsif email == "cliente" && senha == "cliente"
-      Pessoa.setPessoaLogada(Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
-                                        email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
-                                        tipo:0)
-    else
-
-    pessoas = Cliente.listaClientes
+    pessoas = Pessoa.all
     resultado = nil
     pessoas.each do |pessoa|
-      if (pessoa.cpf == email || pessoa.email == email) && (pessoa.senha == senha)
+      if pessoa.inativo == 0 && (pessoa.cpf == email || pessoa.email == email) && (pessoa.senha == senha)
         resultado = pessoa
         break
       end
     end
     resultado
+  end
+
+  def self.verificarCadastroGerente
+    Pessoa.destroy_all
+    resultado = false
+    funcionarios = Funcionario.listaFuncionariosAtivo
+    funcionarios.each do |funcionario|
+      if funcionario.cargo == "gerente"
+        resultado = true
+        break
+      end
+    end
+
+    if resultado == false
+      funcionario = Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                               email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
+                               tipo:1, inativo: 0
+      funcionario.save
     end
   end
+
 end

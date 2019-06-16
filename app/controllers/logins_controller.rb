@@ -4,6 +4,7 @@ class LoginsController < ApplicationController
     @email = ""
     @senha = ""
     @resultadoLogin = ""
+    Pessoa.verificarCadastroGerente
   end
 
   def create
