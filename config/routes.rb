@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :pagamentos
   resources :logins
 
+  root 'logins#index'
 
 end
