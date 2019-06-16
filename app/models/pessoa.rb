@@ -39,7 +39,6 @@ class Pessoa < ApplicationRecord
   end
 
   def self.verificarCadastroGerente
-    Pessoa.destroy_all
     resultado = false
     funcionarios = Funcionario.listaFuncionariosAtivo
     funcionarios.each do |funcionario|
