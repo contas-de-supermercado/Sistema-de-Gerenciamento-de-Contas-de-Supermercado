@@ -11,26 +11,26 @@ class FuncionariosController < ApplicationController
   end
 
   def index
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.new
     carregar_tabela(params[:pesquisa])
 
   end
 
   def new
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.new
   end
 
   def edit
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.find(params[:id])
     @funcionarios = Funcionario.listaFuncionarios
     render 'funcionarios/index'
   end
 
   def update
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.find(params[:id])
 
     if @funcionario.update(funcionario_params)
@@ -44,7 +44,7 @@ class FuncionariosController < ApplicationController
   end
 
   def create
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.new(funcionario_params)
     # tipo = 0 é cliente e. tipo = 1 é funcionario
     @funcionario.tipo = 1
@@ -61,7 +61,7 @@ class FuncionariosController < ApplicationController
   end
 
   def destroy
-    segurancaLogin(1)
+    segurancaLogin(11)
     @funcionario = Funcionario.find(params[:id])
     @funcionario.update(tipo: 0)
     @@resultadoPositivoFuncionario = "Funcionário Deletado";
@@ -75,6 +75,10 @@ class FuncionariosController < ApplicationController
       if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1
         redirect_to logins_path
       end
+    elsif pessoa == 11
+    if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1 || Pessoa.getPessoaLogada().cargo != "gerente"
+      redirect_to logins_path
+    end
     else
       if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 0
         redirect_to logins_path
