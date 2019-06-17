@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'clientes/perfil'
 
+  get 'logins/sair'
+
   resources :funcionarios
   resources :contums
   resources :clientes

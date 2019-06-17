@@ -7,6 +7,12 @@ class LoginsController < ApplicationController
     Pessoa.verificarCadastroGerente
   end
 
+  def sair
+    puts ''
+    Pessoa.setPessoaLogada(nil)
+    redirect_to logins_path
+  end
+
   def create
     email = params[:email]
     senha = params[:senha]
