@@ -68,7 +68,7 @@ class Pessoa < ApplicationRecord
     end
 
     if resultado == false
-      funcionario = Pessoa.new nome:"admin", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+      funcionario = Pessoa.new nome:"admin", cpf:"99999999999", telefone:"00000000000", celular:"00000000000",
                                email:"admin@gmail.com", senha:"admin", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
                                tipo:1, inativo: 0
       funcionario.save
