@@ -159,20 +159,22 @@
         <div id="tabelaFuncionario" style="height: 500px; overflow-y:auto; overflow-x:hidden;">
 
           <% @funcionarios.each do |funcionario| %>
-            <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-              <div class="left col-1 colunaCorpoComum colunaId"> <%= funcionario.id %> </div>
-              <div class="left col-5 colunaCorpoComum colunaNome"> <%= funcionario.nome %> </div>
-              <div class="left col-3 colunaCorpoComum colunaCpf"> <%= funcionario.cpf %> </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Editar', edit_funcionario_path(funcionario), class:"botao_tabela",id:"d-#{'edit-'+funcionario.cpf}" %>
-              </div>
-              <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                <%= link_to 'Deletar', funcionario_path(funcionario), class:"botao_tabela",
-                            method: :delete,
-                            data: { confirm: 'Tem certeza que deseja excluir esse Funcionário?' }, id:"d-#{'delete-'+funcionario.cpf}"%>
+            <% if funcionario.cargo != "gerente" %>
+              <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
+                <div class="left col-1 colunaCorpoComum colunaId"> <%= funcionario.id %> </div>
+                <div class="left col-5 colunaCorpoComum colunaNome"> <%= funcionario.nome %> </div>
+                <div class="left col-3 colunaCorpoComum colunaCpf"> <%= funcionario.cpf %> </div>
+                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
+                  <%= link_to 'Editar', edit_funcionario_path(funcionario), class:"botao_tabela",id:"d-#{'edit-'+funcionario.cpf}" %>
+                </div>
+                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
+                  <%= link_to 'Deletar', funcionario_path(funcionario), class:"botao_tabela",
+                              method: :delete,
+                              data: { confirm: 'Tem certeza que deseja excluir esse Funcionário?' }, id:"d-#{'delete-'+funcionario.cpf}"%>
 
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
