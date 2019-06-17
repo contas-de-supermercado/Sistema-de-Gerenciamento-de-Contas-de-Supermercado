@@ -130,6 +130,7 @@
         </div>
 
         <div id="tabelaContasAtrasadas" style="width: 1200px; height: 200px; overflow-y:auto; overflow-x:hidden;">
+          <script>setValorContaAtrasada(0)</script>
           <% cont = @contasAtrasadas.count - 1
              while(cont >= 0)
           %>
@@ -151,7 +152,7 @@
                 <input style="zoom: 3;" type="checkbox" id="<%=@contasAtrasadas[cont].id%>" checked='checked' onchange="selecionarContaAtrasada(<%=@contasAtrasadas[cont].id%>, <%=@contasAtrasadas[cont].valor%>)">
               </div>
             </div>
-            <script>somarContasAtrasada(<%= @contasAtrasadas[cont].id %>, <%= @contasAtrasadas[cont].valor %>)</script>
+            <script>somarContasAtrasada(<%= @contasAtrasadas[cont].id %>, <%= @contasAtrasadas[cont].valor %>);</script>
           <% cont-= 1
              end %>
         </div>
@@ -172,6 +173,7 @@
         </div>
 
         <div id="tabelaContasDevendo" style="width: 1200px; height: 200px; overflow-y:auto; overflow-x:hidden;">
+          <script>setValorContaDevendo(0);</script>
           <% cont = @contasDevendo.count - 1
              while(cont >= 0)
           %>
@@ -193,7 +195,7 @@
                 <input style="zoom: 3;" type="checkbox" id="<%=@contasDevendo[cont].id%>" checked='checked' onchange="selecionarContaDevendo(<%=@contasDevendo[cont].id%>, <%=@contasDevendo[cont].valor%>)">
               </div>
             </div>
-            <script>somarContasDevendo(<%= @contasDevendo[cont].id %>, <%= @contasDevendo[cont].valor %>)</script>
+            <script>somarContasDevendo(<%= @contasDevendo[cont].id %>, <%= @contasDevendo[cont].valor %>);</script>
           <% cont-= 1
              end %>
         </div>
