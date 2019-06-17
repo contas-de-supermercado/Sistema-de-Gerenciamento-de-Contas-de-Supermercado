@@ -100,12 +100,15 @@ class ContumsController < ApplicationController
   def create
     segurancaLogin(1)
     @contum = Contum.new(conta_params)
-
+    cpfFuncionario = nil
+    cpfCliente = nil
     if @contum.funcionario
+      cpfFuncionario = @contum.funcionario
       @contum.funcionario = Funcionario.listaFuncionarios.pesquisaCpf(@contum.funcionario)[0].id
     end
 
     if @contum.cliente
+      cpfCliente = @contum.cliente
         @contum.cliente = Cliente.pesquisaCpf(@contum.cliente)[0].id
     end
 
@@ -124,6 +127,8 @@ class ContumsController < ApplicationController
       carregarClientes ''
       carregarFuncionarios ''
       carregarContasData ''
+      @contum.funcionario = cpfFuncionario
+      @contum.cliente = cpfCliente
       render 'contums/new'
     end
 
