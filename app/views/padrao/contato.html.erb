@@ -1,0 +1,45 @@
+<body>
+<div id="wrap">
+  <div id="masthead">
+    <h1>Sistema Financeiro de Supermecado - Mercado São Caetano</h1>
+    <h2><%if Pessoa.getPessoaLogada.tipo == 1 %><%= link_to 'Perfil', funcionarios_perfil_path %> |<%end %>
+      <%= link_to 'Contato', padrao_contato_path %>  | <%= link_to 'Sair', logins_sair_path %> </h2>
+  </div>
+  <div id="menucontainer">
+    <div id="menu">
+      <ul>
+        <%if Pessoa.getPessoaLogada.tipo == 1 %>
+          <li><%= link_to 'Registro', new_contum_path %></li>
+          <li><%= link_to 'Pagamento', pagamentos_path %></li>
+          <li><%= link_to 'Contas', contums_path %></li>
+          <li><%= link_to 'Cliente', clientes_path%></li>
+          <%if Pessoa.getPessoaLogada.cargo == "gerente" %>
+            <li><%= link_to 'Funcionário', funcionarios_path %></li>
+          <%end%>
+        <%else %>
+          <li><%= link_to 'Perfil', clientes_perfil_path %></li>
+        <%end %>
+      </ul>
+    </div>
+  </div>
+  <div id="container">
+
+    <div id="content">
+
+      <span class="titulo_formulario" style="font-size: 30px">
+					Telefone: 36266524
+      </span>
+
+      <span class="titulo_formulario" style="font-size: 30px">
+          Celular: (87) 99929-0567
+      </span>
+
+      <span class="titulo_formulario" style="font-size: 30px; margin-bottom: 180px">
+          E-mail: mercadosaocaetano@hotmail.com.br
+      </span>
+
+    </div>
+  </div>
+  <div id="footer"> Mercado São Caetano - Centro do povoado Quandu, municipio de Poço de Trincheiras </div>
+</div>
+</body>

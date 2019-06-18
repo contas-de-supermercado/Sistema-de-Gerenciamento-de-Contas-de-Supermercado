@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'funcionarios/perfil'
 
+  get 'padrao/contato'
+
   resources :funcionarios
   resources :contums
   resources :clientes
