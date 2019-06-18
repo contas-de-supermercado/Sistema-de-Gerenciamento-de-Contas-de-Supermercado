@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'logins/sair'
 
+  get 'funcionarios/perfil'
+
   resources :funcionarios
   resources :contums
   resources :clientes

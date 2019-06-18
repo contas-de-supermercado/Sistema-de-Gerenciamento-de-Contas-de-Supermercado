@@ -10,6 +10,11 @@ class FuncionariosController < ApplicationController
     @@resultadoPositivoFuncionario = valor
   end
 
+  def perfil
+    segurancaLogin(1)
+    @funcionario = Pessoa.getPessoaLogada
+  end
+
   def index
     segurancaLogin(11)
     @funcionario = Funcionario.new
@@ -30,19 +35,37 @@ class FuncionariosController < ApplicationController
   end
 
   def update
-    segurancaLogin(11)
-    @funcionario = Funcionario.find(params[:id])
+    id = nil
+    if params[:id] == "perfil"
+      segurancaLogin(1)
+      id = Pessoa.getPessoaLogada.id
+    else
+      segurancaLogin(11)
+      id = params[:id]
+    end
+    @funcionario = Funcionario.find(id)
     funcionarioAux = Funcionario.new(funcionario_params)
-    if funcionarioAux.cargo.downcase == "gerente"
+    if funcionarioAux.cargo != nil && funcionarioAux.cargo.downcase == "gerente"
       @@resultadoPositivoFuncionario = "erro-O sistema já tem um gerente"
       carregar_tabela ''
       render 'funcionarios/index'
     elsif @funcionario.update(funcionario_params)
-      @@resultadoPositivoFuncionario = "Funcionário Atualizado";
-      redirect_to funcionarios_path
+      if params[:id] == "perfil"
+        @@resultadoPositivoFuncionario = "Perfil Atualizado";
+        Pessoa.setPessoaLogada(@funcionario)
+        redirect_to funcionarios_perfil_path
+      else
+        @@resultadoPositivoFuncionario = "Funcionário Atualizado";
+        redirect_to funcionarios_path
+      end
     else
-      carregar_tabela('')
-      render 'funcionarios/index'
+      if params[:id] == "perfil"
+        render 'funcionarios/perfil'
+      else
+        carregar_tabela('')
+        render 'funcionarios/index'
+      end
+
     end
 
   end

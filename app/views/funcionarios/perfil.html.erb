@@ -10,10 +10,8 @@
         <li><%= link_to 'Registro', new_contum_path %></li>
         <li><%= link_to 'Pagamento', pagamentos_path %></li>
         <li><%= link_to 'Contas', contums_path %></li>
-        <li><%= link_to 'Cliente', clientes_path, class:"current"%></li>
-        <%if Pessoa.getPessoaLogada.cargo == "gerente" %>
-          <li><%= link_to 'Funcionário', funcionarios_path %></li>
-        <%end%>
+        <li><%= link_to 'Cliente', clientes_path %></li>
+        <li><%= link_to 'Funcionário', funcionarios_path %></li>
       </ul>
     </div>
   </div>
@@ -22,13 +20,11 @@
     <div id="content">
 
       <% # formulario de cadastramento ..................................... %>
-      <%= form_with model: @cliente, scope: :cliente, class:"formulario", local: true do |form| %>
+      <%= form_with model: @funcionario, scope: :funcionario, url:funcionarios_perfil_path, class:"formulario", local: true do |form| %>
 
         <span class="titulo_formulario">
-					Cadastrar Cliente
+					Atualizar Perfil
 				</span>
-
-
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
           <%= form.label :nome, class:"label-elemento_formulario" %><br>
@@ -84,38 +80,38 @@
           <span class="focus-input100"></span>
         </div>
 
-        <% if(ClientesController.getResultadoPositivoCliente != "")
+        <% if(FuncionariosController.getResultadoPositivoFuncionario != "")
              valor = ""
-             resultado = ClientesController.getResultadoPositivoCliente
-          if resultado.split('-')[0] == 'erro'
-            valor = "color: red"
-            resultado = resultado.split('-')[1]
-          end
+             resultado = FuncionariosController.getResultadoPositivoFuncionario
+             if resultado.split('-')[0] == 'erro'
+               valor = "color: red"
+               resultado = resultado.split('-')[1]
+             end
         %>
           <span style="<%= valor %>" id="resultadoPositivo" class="status_processo">
             <%= resultado %>
           </span>
-          <%ClientesController.setResultadoPositivoCliente("") %>
+          <%FuncionariosController.setResultadoPositivoFuncionario("") %>
         <% end %>
 
 
         <div class="div_butao_formulario">
           <button class="botao_formulario">
 						<span>
-							Adicionar
+							Atualizar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
           </button>
         </div>
 
-        <% if @cliente.errors.any? %>
+        <% if @funcionario.errors.any? %>
           <div id="error_explanation">
             <h2>
-              <%= pluralize(@cliente.errors.count, "erros") %>
+              <%= pluralize(@funcionario.errors.count, "erros") %>
               antes de criar o cliente:
             </h2>
             <ul>
-              <% @cliente.errors.full_messages.each do |msg| %>
+              <% @funcionario.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
               <% end %>
             </ul>
@@ -123,57 +119,6 @@
         <% end %>
 
       <% end %>
-
-      <% # formulario de pesquisa ......................................... %>
-      <%= form_tag(clientes_path, method: :get, remote:true, class:"formulario formulario_pesquisa") do %>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 380px">
-          <button class="botao_tabela" style="height: 50px">
-						<span>
-							Pesquisar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-          </button>
-        </div>
-
-      <% end %>
-
-      <% # tabela de cadastramento..................................... %>
-      <div class="col-12" >
-        <div class="menuTabela col-10 offset-1 row" style="width: 1140px;">
-          <div class="left col-1 colunaTituloComum colunaId"> Id </div>
-          <div class="left col-5 colunaTituloComum colunaNome"> Nome </div>
-          <div class="left col-3 colunaTituloComum colunaCpf"> Cpf </div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
-        </div>
-
-        <div id="tabelaCliente" style="height: 500px; overflow-y:auto; overflow-x:hidden;">
-          <% @clientes.each do |cliente| %>
-            <% if cliente.cargo != "gerente" %>
-              <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-                <div class="left col-1 colunaCorpoComum colunaId"> <%= cliente.id %> </div>
-                <div class="left col-5 colunaCorpoComum colunaNome"> <%= cliente.nome %> </div>
-                <div class="left col-3 colunaCorpoComum colunaCpf"> <%= cliente.cpf %> </div>
-                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                  <%= link_to 'Editar', edit_cliente_path(cliente), class:"botao_tabela",id:"d-#{'edit-'+cliente.cpf}" %>
-                </div>
-                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                  <%= link_to 'Deletar', cliente_path(cliente), class:"botao_tabela",
-                      method: :delete,
-                      data: { confirm: 'Tem certeza que deseja excluir esse Cliente?' },id:"d-#{'delete-'+cliente.cpf}" %>
-
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
   <div id="footer"> Mercado São Caetano - Centro do povoado Quandu, municipio de Poço de Trincheiras </div>
