@@ -2,7 +2,7 @@
 <div id="wrap">
   <div id="masthead">
     <h1>Sistema Financeiro de Supermecado - Mercado São Caetano</h1>
-    <h2><a href="#">Perfil</a> | <a href="#">Contato</a> </h2>
+    <h2><%= link_to 'Perfil', funcionarios_perfil_path %> | <%= link_to 'Contato', padrao_contato_path %> | <%= link_to 'Sair', logins_sair_path %></h2>
   </div>
   <div id="menucontainer">
     <div id="menu">
@@ -11,7 +11,9 @@
         <li><%= link_to 'Pagamento', pagamentos_path %></li>
         <li><%= link_to 'Contas', contums_path %></li>
         <li><%= link_to 'Cliente', clientes_path%></li>
-        <li><%= link_to 'Funcionário', funcionarios_path %></li>
+        <%if Pessoa.getPessoaLogada.cargo == "gerente" %>
+          <li><%= link_to 'Funcionário', funcionarios_path %></li>
+        <%end%>
       </ul>
     </div>
   </div>

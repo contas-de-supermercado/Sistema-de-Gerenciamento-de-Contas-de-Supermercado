@@ -31,6 +31,7 @@ valorContaDevendo = 0;
 function setValorContaDevendo(valor) {
     valorContaDevendo = valor;
     document.getElementById('contasDevendo').innerHTML = 'Contas Devendo = 0';
+    document.getElementById('valorContas').value = '0';
 }
 
 function somarContasDevendo(conta, valor) {
@@ -58,6 +59,7 @@ valorContaAtrasada = 0;
 function setValorContaAtrasada(valor) {
     valorContaAtrasada = valor;
     document.getElementById('contasAtrasada').innerHTML = 'Contas Atrasadas = 0';
+    document.getElementById('valorContas').value = '0';
 }
 
 function somarContasAtrasada(conta, valor) {

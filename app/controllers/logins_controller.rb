@@ -4,6 +4,13 @@ class LoginsController < ApplicationController
     @email = ""
     @senha = ""
     @resultadoLogin = ""
+    Pessoa.verificarCadastroGerente
+  end
+
+  def sair
+    puts ''
+    Pessoa.setPessoaLogada(nil)
+    redirect_to logins_path
   end
 
   def create

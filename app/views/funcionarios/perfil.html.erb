@@ -2,7 +2,7 @@
 <div id="wrap">
   <div id="masthead">
     <h1>Sistema Financeiro de Supermecado - Mercado São Caetano</h1>
-    <h2><%= link_to 'Perfil', funcionarios_perfil_path %> | <%= link_to 'Contato', padrao_contato_path %> | <%= link_to 'Sair', logins_sair_path %></h2>
+    <h2><%= link_to 'Perfil', funcionarios_perfil_path %> | <%= link_to 'Contato', padrao_contato_path %> | <%= link_to 'Sair', logins_sair_path %> </h2>
   </div>
   <div id="menucontainer">
     <div id="menu">
@@ -11,7 +11,7 @@
         <li><%= link_to 'Pagamento', pagamentos_path %></li>
         <li><%= link_to 'Contas', contums_path %></li>
         <li><%= link_to 'Cliente', clientes_path %></li>
-        <li><%= link_to 'Funcionário', funcionarios_path, class:"current" %></li>
+        <li><%= link_to 'Funcionário', funcionarios_path %></li>
       </ul>
     </div>
   </div>
@@ -20,10 +20,10 @@
     <div id="content">
 
       <% # formulario de cadastramento ..................................... %>
-      <%= form_with model: @funcionario, scope: :funcionario, class:"formulario", local: true do |form| %>
+      <%= form_with model: @funcionario, scope: :funcionario, url:funcionarios_perfil_path, class:"formulario", local: true do |form| %>
 
         <span class="titulo_formulario">
-					Cadastrar Funcionário
+					Atualizar Perfil
 				</span>
 
         <div class="elemento_formulario quantidade_elemento_linha_formulario">
@@ -80,12 +80,6 @@
           <span class="focus-input100"></span>
         </div>
 
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= form.label :cargo, class:"label-elemento_formulario" %><br>
-          <%= form.text_field :cargo, class:"input100", placeholder:"Digite o um cargo" %>
-          <span class="focus-input100"></span>
-        </div>
-
         <% if(FuncionariosController.getResultadoPositivoFuncionario != "")
              valor = ""
              resultado = FuncionariosController.getResultadoPositivoFuncionario
@@ -100,21 +94,21 @@
           <%FuncionariosController.setResultadoPositivoFuncionario("") %>
         <% end %>
 
+
         <div class="div_butao_formulario">
           <button class="botao_formulario">
 						<span>
-							Adicionar
+							Atualizar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
           </button>
         </div>
 
-
         <% if @funcionario.errors.any? %>
           <div id="error_explanation">
             <h2>
               <%= pluralize(@funcionario.errors.count, "erros") %>
-              antes de criar o funcionario:
+              antes de criar o cliente:
             </h2>
             <ul>
               <% @funcionario.errors.full_messages.each do |msg| %>
@@ -124,63 +118,8 @@
           </div>
         <% end %>
 
-
       <% end %>
-
-      <% # formulario de pesquisa %>
-      <%= form_tag(funcionarios_path, method: :get, remote:true, class:"formulario formulario_pesquisa") do %>
-
-        <div class="elemento_formulario quantidade_elemento_linha_formulario">
-          <%= text_field_tag :pesquisa, nil, class:"input100", placeholder:"Pesquise por nome, cpf e id" %>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="div_butao_formulario" style="margin-top: -70px; margin-left: 380px">
-          <button class="botao_tabela" style="height: 50px">
-						<span>
-							Pesquisar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-          </button>
-        </div>
-
-      <% end %>
-
-      <% # tabela de cadastramento..................................... %>
-      <div class="col-12" >
-        <div class="menuTabela col-10 offset-1 row" style="width: 1140px;">
-          <div class="left col-1 colunaTituloComum colunaId"> Id </div>
-          <div class="left col-5 colunaTituloComum colunaNome"> Nome </div>
-          <div class="left col-3 colunaTituloComum colunaCpf"> Cpf </div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
-          <div class="left col-3 colunaTituloComum colunaId"></div>
-        </div>
-
-        <div id="tabelaFuncionario" style="height: 500px; overflow-y:auto; overflow-x:hidden;">
-
-          <% @funcionarios.each do |funcionario| %>
-            <% if funcionario.cargo != "gerente" %>
-              <div class="menuTabela col-10 offset-1 row" style="width: 1140px; background: #ffffff;">
-                <div class="left col-1 colunaCorpoComum colunaId"> <%= funcionario.id %> </div>
-                <div class="left col-5 colunaCorpoComum colunaNome"> <%= funcionario.nome %> </div>
-                <div class="left col-3 colunaCorpoComum colunaCpf"> <%= funcionario.cpf %> </div>
-                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                  <%= link_to 'Editar', edit_funcionario_path(funcionario), class:"botao_tabela",id:"d-#{'edit-'+funcionario.cpf}" %>
-                </div>
-                <div class="left col-3" style="width: 10%; font-size: 18px; margin-top: -20px;">
-                  <%= link_to 'Deletar', funcionario_path(funcionario), class:"botao_tabela",
-                              method: :delete,
-                              data: { confirm: 'Tem certeza que deseja excluir esse Funcionário?' }, id:"d-#{'delete-'+funcionario.cpf}"%>
-
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
     </div>
-
   </div>
   <div id="footer"> Mercado São Caetano - Centro do povoado Quandu, municipio de Poço de Trincheiras </div>
 </div>
