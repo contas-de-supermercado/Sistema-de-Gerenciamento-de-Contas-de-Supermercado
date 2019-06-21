@@ -116,9 +116,8 @@
       <% end %>
 
       <% # tabela de contas atrazadas..................................... %>
-      <span id="contasAtrasada" class="titulo_formulario">
-					Contas Atrasadas = 0
-      </span>
+      <textarea readonly=“true” id="contasAtrasada" class="titulo_formulario"></textarea>
+      <script>setValorContaAtrasada(0)</script>
       <div class="col-12" style="width: 1140px" >
         <div class="menuTabela" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaIdConta"> Id </div>
@@ -159,9 +158,8 @@
       </div>
 
       <% # tabela de contas devendo..................................... %>
-      <span id="contasDevendo" class="titulo_formulario">
-					Contas Devendo = 0
-      </span>
+      <textarea readonly=“true” id="contasDevendo" class="titulo_formulario"></textarea>
+      <script>setValorContaDevendo(0)</script>
       <div class="col-12" style="width: 1140px" >
         <div class="menuTabela" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaIdConta"> Id </div>
