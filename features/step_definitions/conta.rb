@@ -44,13 +44,9 @@ Given("Eu preencho as informacoes de cliente com cpf {string} e do funcionario c
   visit '/contums/new'
   fill_in 'contum[cliente]', :with => cpfCliente
   fill_in 'contum[funcionario]', :with => cpfFuncionario
-
-  #click_button "d-#{'cliente-'+cpfCliente}"
-  #click_button "d-#{'funcionario-'+cpfFuncionario}"
 end
 
 When("Eu preencho valor da conta com {string}") do |valor|
-
   fill_in 'contum[valor]', :with => valor
   fill_in 'contum[juros]', :with => 33
   click_button 'Adicionar'
@@ -142,7 +138,7 @@ end
 
 When("Eu preencho valor da conta com {string} negativo") do |valor|
   fill_in 'contum[valor]', :with => valor
-  fill_in 'contum[juros]', :with => "3"
+  fill_in 'contum[juros]', :with => 33
   click_button 'Adicionar'
 end
 
