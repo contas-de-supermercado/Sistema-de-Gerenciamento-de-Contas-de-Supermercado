@@ -22,7 +22,7 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -71,7 +71,6 @@ textarea:-ms-input-placeholder {
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
 	border: none;
 	background: transparent;
 }
@@ -81,7 +80,6 @@ button:hover {
 }
 
 iframe {
-	border: none !important;
 }
 
 
