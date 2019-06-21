@@ -20,6 +20,7 @@ Given("Eu abro a pagina de pagamento") do
 end
 
 Given("Eu vejo que a conta do cliente com cpf {string} existe") do |cpfCliente|
+  logarComoFuncionario()
   visit '/funcionarios'
   fill_in 'funcionario[nome]', :with => 'erik'
   fill_in 'funcionario[cpf]', :with => "11111111111"
