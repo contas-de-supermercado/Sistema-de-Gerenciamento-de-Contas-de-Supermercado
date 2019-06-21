@@ -1,8 +1,26 @@
+module Login
+  def logarComoFuncionario
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
+                                      tipo:1)
+  end
+
+  def logarComoCliente
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                      tipo:0)
+  end
+end
+
+World Login
+
 Given("Eu abro a pagina inicial de contas") do
+  logarComoFuncionario()
   visit '/contums/new'
 end
 
 Given("Eu preencho as informacoes de cliente com cpf {string} e do funcionario com cpf {string}") do |cpfCliente, cpfFuncionario|
+  logarComoFuncionario()
   visit '/clientes'
   fill_in 'cliente[nome]', :with => 'luis'
   fill_in 'cliente[cpf]', :with => cpfCliente
@@ -43,6 +61,7 @@ Then("Eu vejo que a conta foi salva") do
 end
 
 Given("Eu clico em editar") do
+  logarComoFuncionario()
   visit '/clientes'
   fill_in 'cliente[nome]', :with => 'luis'
   fill_in 'cliente[cpf]', :with => "12345678910"
@@ -80,6 +99,7 @@ When("Eu mudo o valor para {string}") do |valor|
 end
 
 When("Eu excluo a conta") do
+  logarComoFuncionario()
   visit '/clientes'
   fill_in 'cliente[nome]', :with => 'luis'
   fill_in 'cliente[cpf]', :with => "12345678910"
