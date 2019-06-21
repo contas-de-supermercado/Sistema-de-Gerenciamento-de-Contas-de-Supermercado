@@ -13,9 +13,8 @@
       </span>
 
       <% # tabela de contas atrazadas..................................... %>
-      <span id="contasAtrasada" class="titulo_formulario" style="font-size: 30px">
-					Contas Atrasadas = 0
-      </span>
+      <textarea readonly=“true” id="contasAtrasada" class="titulo_formulario" style="font-size: 30px"></textarea>
+      <script>somarContasAtrasadasCliente(0)</script>
       <div class="col-12" style="width: 1140px" >
         <div class="menuTabela" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaIdConta"> Id </div>
@@ -56,9 +55,8 @@
       </div>
 
       <% # tabela de contas devendo..................................... %>
-      <span id="contasDevendoCliente" class="titulo_formulario" style="font-size: 30px">
-					Contas Devendo = 0
-      </span>
+      <textarea readonly=“true” id="contasDevendoCliente" class="titulo_formulario" style="font-size: 30px"></textarea>
+      <script>somarContasDevendoCliente(0)</script>
       <div class="col-12" style="width: 1140px" >
         <div class="menuTabela" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaIdConta"> Id </div>
@@ -98,9 +96,8 @@
       </div>
 
       <% # tabela de contas Pagas..................................... %>
-      <span id="contasPagas" class="titulo_formulario" style="font-size: 30px">
-					Contas Pagas = 0
-      </span>
+      <textarea readonly=“true” id="contasPagas" class="titulo_formulario" style="font-size: 30px"></textarea>
+      <script>somarContasPagasCliente(0)</script>
       <div class="col-12" style="width: 1140px" >
         <div class="menuTabela" style="width: 1140px;">
           <div class="left col-1 colunaTituloComum colunaIdConta"> Id </div>
