@@ -154,6 +154,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -231,6 +234,7 @@ DEPENDENCIES
   launchy
   puma (~> 3.7)
   rails (~> 5.1.6)
+  responders (~> 2.3)
   rspec (~> 3.7.0)
   sass-rails (~> 5.0)
   selenium-webdriver
