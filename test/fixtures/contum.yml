@@ -2,8 +2,8 @@
 
 one:
 
-  valor: 
-  juros: 
+  valor: 1
+  juros: 1
   status: MyString
   dataCompra: MyString
   dataPagamento: MyString
@@ -15,8 +15,8 @@ one:
 
 
 two:
-  valor: 
-  juros: 
+  valor: 1
+  juros: 1
   status: MyString
   dataCompra: MyString
   dataPagamento: MyString

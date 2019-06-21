@@ -44,6 +44,7 @@ Given("Eu preencho as informacoes de cliente com cpf {string} e do funcionario c
   visit '/contums/new'
   fill_in 'contum[cliente]', :with => cpfCliente
   fill_in 'contum[funcionario]', :with => cpfFuncionario
+
   #click_button "d-#{'cliente-'+cpfCliente}"
   #click_button "d-#{'funcionario-'+cpfFuncionario}"
 end
