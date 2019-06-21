@@ -1,4 +1,21 @@
+module Login
+  def logarComoFuncionario
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
+                                      tipo:1)
+  end
+
+  def logarComoCliente
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                      tipo:0)
+  end
+end
+
+World Login
+
 Given("Eu abro a pagina inicial de contas") do
+  logarComoFuncionario()
   visit '/contums/new'
 end
 
@@ -27,6 +44,7 @@ Given("Eu preencho as informacoes de cliente com cpf {string} e do funcionario c
   visit '/contums/new'
   fill_in 'contum[cliente]', :with => cpfCliente
   fill_in 'contum[funcionario]', :with => cpfFuncionario
+
   #click_button "d-#{'cliente-'+cpfCliente}"
   #click_button "d-#{'funcionario-'+cpfFuncionario}"
 end
@@ -34,7 +52,7 @@ end
 When("Eu preencho valor da conta com {string}") do |valor|
 
   fill_in 'contum[valor]', :with => valor
-  fill_in 'contum[juros]', :with => "3"
+  fill_in 'contum[juros]', :with => 33
   click_button 'Adicionar'
 end
 

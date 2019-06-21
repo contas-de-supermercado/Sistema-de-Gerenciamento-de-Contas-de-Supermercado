@@ -1,0 +1,3 @@
+The latest bundler is 2.0.1, but you are currently running 1.15.3.
+To update, run `gem install bundler`
+Could not find command "(".
