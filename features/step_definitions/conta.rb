@@ -51,7 +51,7 @@ end
 
 When("Eu preencho valor da conta com {string}") do |valor|
 
-  fill_in 'contum[valor]', :with => 22
+  fill_in 'contum[valor]', :with => valor
   fill_in 'contum[juros]', :with => 33
   click_button 'Adicionar'
 end
