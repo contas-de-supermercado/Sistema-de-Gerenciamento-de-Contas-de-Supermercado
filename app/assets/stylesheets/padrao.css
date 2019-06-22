@@ -4,8 +4,8 @@ padding : 0;
 } 
 body { 
 font : 73% Arial, "Trebuchet MS", Helvetica, Tahoma, sans-serif;
-background : #ccc url(images/bg_aux.jpg) top center repeat-y;
-color : #555;
+background : #ffffff url(images/bg_aux.jpg) top center repeat-y;
+color : #ffffff;
 } 
 			/*WRAP*/
 #wrap { 
