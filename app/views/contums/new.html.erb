@@ -1,9 +1,6 @@
 <body>
 <div id="wrap">
-  <div id="masthead">
-    <h1>Sistema Financeiro de Supermecado - Mercado São Caetano</h1>
-    <h2><%= link_to 'Perfil', funcionarios_perfil_path %> | <%= link_to 'Contato', padrao_contato_path %> | <%= link_to 'Sair', logins_sair_path %></h2>
-  </div>
+  <%= render 'padrao/menu' %>
   <div id="menucontainer">
     <div id="menu">
       <ul>
@@ -263,6 +260,6 @@
     </div>
 
   </div>
-  <div id="footer"> Mercado São Caetano - Centro do povoado Quandu, municipio de Poço de Trincheiras </div>
+  <%= render 'padrao/rodape' %>
 </div>
 </body>
