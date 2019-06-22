@@ -1,8 +1,25 @@
+module Login
+  def logarComoFuncionario
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
+                                      tipo:1)
+  end
+
+  def logarComoCliente
+    Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                      tipo:0)
+  end
+end
+
+World Login
+
 Given("Eu abro a pagina inicial do sistema") do
   visit '/logins'
 end
 
 Given("O usuario existe") do
+  logarComoFuncionario()
   visit '/funcionarios'
   fill_in 'funcionario[nome]', :with => "Luis"
   fill_in 'funcionario[cpf]', :with => "11111111111"
@@ -65,6 +82,5 @@ end
 When("Eu nao preencho o campo CPF do login") do
   fill_in 'emailLogin', :with => ''
   fill_in 'senhaLogin', :with => "luis12345"
-
 end
 
