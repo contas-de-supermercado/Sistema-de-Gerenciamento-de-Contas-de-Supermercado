@@ -1,0 +1,30 @@
+
+<% if(@resultadoConta) %>
+
+  <%
+     valorCor = ""
+     valorId = "resultadoPositivo"
+     resultado = @resultadoConta
+    if resultado.split('-')[0] == 'erro'
+      valorCor = "color: red"
+      valorId = "resultadoNegativo"
+      resultado = resultado.split('-')[1]
+    end
+  %>
+
+  var div = document.getElementById('resultadoConta');
+
+  <%if valorId == "resultadoPositivo"%>
+    div.innerHTML = "<span id='<%=valorId%>' style='<%=valorCor%>'><%=resultado%></span>";
+  <%else %>
+    <% if @contum.errors.any? %>
+      div.innerHTML = "<h2 style='<%=valorCor%>; font-size: 18px;'><%= pluralize(@contum.errors.count, 'erros') %> antes de criar a conta:</h2><ul>";
+      var result = "";
+      <%@contum.errors.full_messages.each do |msg|%>
+        result += "<li style='<%=valorCor%>; font-size: 17px;'><%= msg %></li>";
+      <% end %>
+      div.innerHTML += result + "</ul>";
+    <% end %>
+  <%end %>
+
+<%end %>

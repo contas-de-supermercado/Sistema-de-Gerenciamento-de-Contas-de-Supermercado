@@ -1,21 +1,8 @@
 class ContumsController < ApplicationController
   respond_to :js, :html
 
-  @@resultadoPositivoFicheiro = ""
-
-  def self.getResultadoPositivoFicheiro
-    @@resultadoPositivoFicheiro
-  end
-  def self.setResultadoPositivoFicheiro valor
-    @@resultadoPositivoFicheiro  = valor
-  end
-
   def index
     segurancaLogin(1)
-    if @@telaAbertaConta == 1
-      @@resultadoPositivoFicheiro = ""
-    end
-    @@telaAbertaConta = 0;
 
     if(params[:pesquisa] &&  params[:pesquisa] != '')
       @clientes = Cliente.pesquisa(params[:pesquisa])
@@ -31,10 +18,6 @@ class ContumsController < ApplicationController
 
   def new
     segurancaLogin(1)
-    if @@telaAbertaConta == 0
-      @@resultadoPositivoFicheiro = ""
-    end
-    @@telaAbertaConta = 1
     if params[:pesquisaCliente] || params[:pesquisaFuncionario] || params[:pesquisaConta]
       carregarClientes params[:pesquisaCliente]
       carregarFuncionarios params[:pesquisaFuncionario]
@@ -72,28 +55,12 @@ class ContumsController < ApplicationController
       end
     end
 
-    if !@conta.juros
-      @conta.juros = 0
-    end
-    if !@conta.valor
-      @conta.valor = 0
-    end
-
-    @cont = Contum.find(params[:id])
-    @cont.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
-                 descricao: @conta.descricao, comprador: @conta.comprador, parentesco: @conta.parentesco)
-    carregarContas @cont.cliente
-
-    @@resultadoPositivoFicheiro = "Conta Atualizada"
-    if @@telaAbertaConta == 0
-      carregarContas(@cont.cliente)
-      render 'contums/index'
-    elsif @@telaAbertaConta == 1
-      @contum = Contum.new
-      carregarFuncionarios ''
-      carregarClientes ''
-      carregarContasData ''
-      render 'contums/new'
+    @contum = Contum.find(params[:id])
+    if @contum.update(valor: @conta.valor, juros: @conta.juros, status: @conta.status, dataPagamento: @conta.dataPagamento,
+                      descricao: @conta.descricao, comprador: @conta.comprador, parentesco: @conta.parentesco)
+      redirect_to contum_path(@contum.cliente)
+    else
+      @resultadoConta = "erro-"
     end
   end
 
@@ -109,7 +76,7 @@ class ContumsController < ApplicationController
 
     if @contum.cliente
       cpfCliente = @contum.cliente
-        @contum.cliente = Cliente.pesquisaCpf(@contum.cliente)[0].id
+      @contum.cliente = Cliente.pesquisaCpf(@contum.cliente)[0].id
     end
 
     time = Time.now
@@ -118,17 +85,15 @@ class ContumsController < ApplicationController
       @contum.dataPagamento = time;
     end
 
-
-
     if @contum.save
-      @@resultadoPositivoFicheiro = "Conta salva"
       redirect_to new_contum_path
     else
-      carregarClientes ''
-      carregarFuncionarios ''
-      carregarContasData ''
-      @contum.funcionario = cpfFuncionario
+      @contum = Contum.new
       @contum.cliente = cpfCliente
+      @contum.funcionario = cpfFuncionario
+      carregarFuncionarios ''
+      carregarClientes ''
+      carregarContasData ''
       render 'contums/new'
     end
 
@@ -138,30 +103,20 @@ class ContumsController < ApplicationController
     segurancaLogin(1)
     @contum = Contum.find(params[:id])
     @contum.destroy
-    @@resultadoPositivoFicheiro = "Conta Deletada"
-    if @@telaAbertaConta == 0
-      carregarContas(@contum.cliente)
-      render 'contums/index'
-    elsif @@telaAbertaConta == 1
-      @contum = Contum.new
-      carregarFuncionarios ''
-      carregarClientes ''
-      carregarContasData ''
-      render 'contums/new'
-    end
+    @resultadoConta = "Conta deletada"
+    redirect_to contum_path(@contum.cliente)
   end
 
   private
   # 0 = index, 1 = new
-  @@telaAbertaConta = -1
 
   def segurancaLogin pessoa
     if pessoa == 1
-      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 1
+      if Pessoa.getPessoaLogada().nil? || Pessoa.getPessoaLogada().tipo != 1
         redirect_to logins_path
       end
     else
-      if Pessoa.getPessoaLogada() == nil || Pessoa.getPessoaLogada().tipo != 0
+      if Pessoa.getPessoaLogada().nil? || Pessoa.getPessoaLogada().tipo != 0
         redirect_to logins_path
       end
     end

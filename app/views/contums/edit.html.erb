@@ -91,12 +91,7 @@
           <span class="focus-input100"></span>
         </div>
 
-        <% if(ContumsController.getResultadoPositivoFicheiro != "") %>
-    <span id="resultadoPositivo" class="status_processo">
-            <%= ContumsController.getResultadoPositivoFicheiro %>
-          </span>
-          <%ContumsController.setResultadoPositivoFicheiro("") %>
-        <% end %>
+        <div id="resultadoConta" class='status_processo'></div>
 
         <div class="div_butao_formulario">
           <button class="botao_formulario">
