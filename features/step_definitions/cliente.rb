@@ -1,7 +1,7 @@
 module Login
   def logarComoFuncionario
     Pessoa.setPessoaLogada(Pessoa.new nome:"teste", cpf:"00000000000", telefone:"00000000000", celular:"00000000000",
-                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"-----",
+                                      email:"teste@gmail.com", senha:"teste", cidade:"-----", rua:"-----", numero:"-----", cargo:"gerente",
                                       tipo:1)
   end
 
